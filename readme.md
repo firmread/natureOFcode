@@ -2,8 +2,9 @@ Nature of Code examples
 ==========
 **OpenFrameworks version**
 
-derived from Daniel Shiffman's [Processing example](https://github.com/shiffman/The-Nature-of-Code-Examples) for the book [Nature of Code](http://natureofcode.com/)
-more detailed concept can be seen at [Shiffman's Vimeo page](https://vimeo.com/shiffman)
+* derived from Daniel Shiffman's [Processing example](https://github.com/shiffman/The-Nature-of-Code-Examples) 
+* for the book [Nature of Code](http://natureofcode.com/)
+* more detailed concept can be seen at [Shiffman's Vimeo page](https://vimeo.com/shiffman)
 
 
 **note**
