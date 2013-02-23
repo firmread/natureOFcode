@@ -17,23 +17,23 @@ void testApp::setup(){
     ofEnableSmoothing();
     ofBackground(255);
     
-    mover.setup();
+    m.setup();
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     ofPoint wind(0.01, 0);
     ofPoint gravity(0, 0.1);
-    mover.applyForce(wind);
-    mover.applyForce(gravity);
+    m.applyForce(wind);
+    m.applyForce(gravity);
     
-    mover.update();
-    mover.checkEdges();
+    m.update();
+    m.checkEdges();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    mover.display();
+    m.display();
 }
 
 //--------------------------------------------------------------

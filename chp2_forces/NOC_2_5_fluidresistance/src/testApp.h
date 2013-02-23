@@ -22,6 +22,6 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         void reset();
-        Mover movers[NUM_MOVER];
+        mover movers[NUM_MOVER];
         liquid myLiquid;
 };

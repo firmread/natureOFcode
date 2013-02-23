@@ -1,11 +1,3 @@
-//
-//  mover.cpp
-//  NOC_1_7_motion101
-//
-//  Created by Firm Read on 2/22/13.
-//
-//
-
 #include "mover.h"
 
 void mover::setup(){

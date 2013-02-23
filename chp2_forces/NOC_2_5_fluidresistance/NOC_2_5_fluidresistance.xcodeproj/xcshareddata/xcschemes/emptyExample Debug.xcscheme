@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "NOC_2_4_forces_nofriction.app"
+               BuildableName = "NOC_2_5_fluidresistance.app"
                BlueprintName = "NOC_2_5_fluidresistance"
                ReferencedContainer = "container:NOC_2_5_fluidresistance.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_4_forces_nofriction.app"
+            BuildableName = "NOC_2_5_fluidresistance.app"
             BlueprintName = "NOC_2_5_fluidresistance"
             ReferencedContainer = "container:NOC_2_5_fluidresistance.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_4_forces_nofriction.app"
+            BuildableName = "NOC_2_5_fluidresistance.app"
             BlueprintName = "NOC_2_5_fluidresistance"
             ReferencedContainer = "container:NOC_2_5_fluidresistance.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_4_forces_nofriction.app"
+            BuildableName = "NOC_2_5_fluidresistance.app"
             BlueprintName = "NOC_2_5_fluidresistance"
             ReferencedContainer = "container:NOC_2_5_fluidresistance.xcodeproj">
          </BuildableReference>

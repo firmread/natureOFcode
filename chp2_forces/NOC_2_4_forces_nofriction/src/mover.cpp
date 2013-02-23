@@ -6,28 +6,28 @@
 //
 //
 
-#include "Mover.h"
+#include "mover.h"
 
-void Mover::setup(float m, float x, float y){
+void mover::setup(float m, float x, float y){
     mass = m;
     location.set(x,y);
     velocity.set(0,0);
     acceleration.set(0,0);
 }
 
-void Mover::applyForce(ofPoint force){
+void mover::applyForce(ofPoint force){
     ofPoint f;
     f = force/mass;
     acceleration += f;
 }
 
-void Mover::update(){
+void mover::update(){
     velocity += acceleration;
     location += velocity;
     acceleration *= 0;
 }
 
-void Mover::display(){
+void mover::display(){
 
     ofSetColor(0,127);
     ofFill();
@@ -40,7 +40,7 @@ void Mover::display(){
 
 }
 
-void Mover::checkEdges(){
+void mover::checkEdges(){
     if (location.x > ofGetWidth()) {
         location.x = ofGetWidth();
         velocity.x *= -1;

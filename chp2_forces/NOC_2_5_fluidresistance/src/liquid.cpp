@@ -16,7 +16,7 @@ void liquid::setup(float x_, float y_, float w_, float h_, float c_){
     c = c_;
 }
 
-bool liquid::contains(Mover m){
+bool liquid::contains(mover m){
     ofPoint l = m.location;
     if (l.x > x && l.x < x +w && l.y > y && l.y < y + h) {
         return true;
@@ -26,7 +26,7 @@ bool liquid::contains(Mover m){
     }
 }
 
-ofPoint liquid::drag(Mover m){
+ofPoint liquid::drag(mover m){
     float speed = m.velocity.length();
     float dragLength = c * speed * speed;
     

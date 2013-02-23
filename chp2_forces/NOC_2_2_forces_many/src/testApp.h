@@ -19,5 +19,5 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        Mover movers[NUM_MOVER];
+        mover movers[NUM_MOVER];
 };

@@ -17,8 +17,8 @@ class liquid{
 public:
     
     void setup(float x_, float y_, float w_, float h_, float c_);
-    bool contains(Mover m);
-    ofPoint drag(Mover m);
+    bool contains(mover m);
+    ofPoint drag(mover m);
     void display();
     
     // Liquid is a rectangle
