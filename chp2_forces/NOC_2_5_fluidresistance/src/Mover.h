@@ -14,17 +14,16 @@
 
 class Mover{
 public:
-    void setup();
-    void update(int x, int y);
+    void setup(float m, float x, float y);
+    void applyForce(ofPoint force);
+    void update();
     void display();
     void checkEdges();
     
-    // The Mover tracks location, velocity, and acceleration 
     ofPoint location;
     ofPoint velocity;
     ofPoint acceleration;
-    // The Mover's maximum speed
-    float topspeed;
+    float mass;
     
 };
 

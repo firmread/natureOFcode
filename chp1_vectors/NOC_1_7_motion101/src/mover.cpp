@@ -6,18 +6,18 @@
 //
 //
 
-#include "Mover.h"
+#include "mover.h"
 
-void Mover::setup(){
+void mover::setup(){
     location.set(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     velocity.set(ofRandom(-2,2), ofRandom(-2,2));
 }
 
-void Mover::update(){
+void mover::update(){
     location += velocity;
 }
 
-void Mover::display(){
+void mover::display(){
 
     ofSetColor(127);
     ofFill();
@@ -30,7 +30,7 @@ void Mover::display(){
 
 }
 
-void Mover::checkEdges(){
+void mover::checkEdges(){
     if (location.x > ofGetWidth()) {
         location.x = 0;
     }

@@ -6,15 +6,15 @@
 //
 //
 
-#include "Mover.h"
+#include "mover.h"
 
-void Mover::setup(){
+void mover::setup(){
     location.set(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     velocity.set(0,0);
     topspeed = 5;
 }
 
-void Mover::update(int x, int y){
+void mover::update(int x, int y){
     // Compute a vector that points from location to mouse
     ofPoint mouse(x, y);
     
@@ -32,7 +32,7 @@ void Mover::update(int x, int y){
     location += velocity;
 }
 
-void Mover::display(){
+void mover::display(){
 
     ofSetColor(127,200);
     ofFill();

@@ -12,16 +12,18 @@
 #include <iostream>
 #include "ofMain.h"
 
-class Mover{
+class mover{
 public:
     void setup();
-    void update();
+    void update(int x, int y);
     void display();
     void checkEdges();
     
+    // The Mover tracks location, velocity, and acceleration 
     ofPoint location;
     ofPoint velocity;
     ofPoint acceleration;
+    // The Mover's maximum speed
     float topspeed;
     
 };

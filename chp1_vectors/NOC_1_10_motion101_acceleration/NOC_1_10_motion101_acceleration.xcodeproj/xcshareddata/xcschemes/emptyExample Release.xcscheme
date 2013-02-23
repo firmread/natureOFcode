@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "NOC_1_9_motion101_acceleration.app"
+               BuildableName = "NOC_1_10_motion101_acceleration.app"
                BlueprintName = "NOC_1_10_motion101_acceleration"
                ReferencedContainer = "container:NOC_1_10_motion101_acceleration.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_1_9_motion101_acceleration.app"
+            BuildableName = "NOC_1_10_motion101_acceleration.app"
             BlueprintName = "NOC_1_10_motion101_acceleration"
             ReferencedContainer = "container:NOC_1_10_motion101_acceleration.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_1_9_motion101_acceleration.app"
+            BuildableName = "NOC_1_10_motion101_acceleration.app"
             BlueprintName = "NOC_1_10_motion101_acceleration"
             ReferencedContainer = "container:NOC_1_10_motion101_acceleration.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_1_9_motion101_acceleration.app"
+            BuildableName = "NOC_1_10_motion101_acceleration.app"
             BlueprintName = "NOC_1_10_motion101_acceleration"
             ReferencedContainer = "container:NOC_1_10_motion101_acceleration.xcodeproj">
          </BuildableReference>

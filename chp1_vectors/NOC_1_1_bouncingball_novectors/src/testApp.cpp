@@ -5,7 +5,6 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
-    ofSetWindowShape(800, 200);
     ofEnableSmoothing();
     ofSetFrameRate(30);
     /*  

@@ -12,7 +12,7 @@
 #include <iostream>
 #include "ofMain.h"
 
-class Mover{
+class mover{
 public:
     void setup();
     void update();

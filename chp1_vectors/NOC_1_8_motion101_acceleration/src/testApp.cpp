@@ -4,22 +4,21 @@
 void testApp::setup(){
     ofSetFrameRate(60);
     
-    ofSetWindowShape(800, 200);
     ofEnableSmoothing();
     ofBackground(255);
     
-    mover.setup();
+    m.setup();
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    mover.update();
-    mover.checkEdges();
+    m.update();
+    m.checkEdges();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    mover.display();
+    m.display();
 }
 
 //--------------------------------------------------------------

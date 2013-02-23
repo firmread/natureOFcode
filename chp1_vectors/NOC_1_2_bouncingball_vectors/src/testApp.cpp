@@ -4,7 +4,6 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofSetWindowShape(200, 200);
     
     ofEnableSmoothing();
     ofEnableAlphaBlending();

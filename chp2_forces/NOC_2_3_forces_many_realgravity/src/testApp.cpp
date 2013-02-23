@@ -14,7 +14,6 @@
 void testApp::setup(){
     ofSetFrameRate(60);
     
-    ofSetWindowShape(800, 200);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     ofBackground(255);

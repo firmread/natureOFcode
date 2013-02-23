@@ -4,7 +4,6 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofSetWindowShape(800, 200);
     ofEnableSmoothing();
     ofBackground(255);
 }
