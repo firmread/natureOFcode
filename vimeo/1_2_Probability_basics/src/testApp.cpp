@@ -3,9 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     ofSetBackgroundAuto(false);
-    //this line is nessessary since OF automatically update background
     ofSetFrameRate(120);
-    //limit cpu loop speed -> otherwise OF tends to use full power all the time
     
     w.setup();
 }

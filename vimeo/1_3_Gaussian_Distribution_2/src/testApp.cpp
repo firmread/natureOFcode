@@ -2,23 +2,29 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    ofSetFrameRate(30);
+    ofEnableAlphaBlending();
     ofSetBackgroundAuto(false);
-    //this line is nessessary since OF automatically update background
-    ofSetFrameRate(120);
-    //limit cpu loop speed -> otherwise OF tends to use full power all the time
-    
-    w.setup();
+    ofSetVerticalSync(true);
+    //so it doesn't break vertically when math is faster than framerate
+    ofSetCircleResolution(100);
+    //nicer round circle :)
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    w.walk();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    ofSetColor(0);
-    w.render();
+    float xloc = ofxGaussian();
+    float sd = 60;
+    float mean = ofGetWidth()/2;
+    xloc = (xloc *sd) +mean;
+    
+    
+    ofSetColor(0,10);
+    ofCircle(xloc, ofGetHeight()/2, 8,8);
 }
 
 //--------------------------------------------------------------
