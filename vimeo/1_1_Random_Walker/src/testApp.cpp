@@ -2,17 +2,22 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-
+    w.setup();
+    ofSetBackgroundAuto(false);
+    //this line is nessessary since OF automatically update background
+    ofSetFrameRate(120);
+    //limit cpu loop speed -> otherwise OF tends to use full power all the time
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    w.walk();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+    ofSetColor(0);
+    w.render();
 }
 
 //--------------------------------------------------------------
