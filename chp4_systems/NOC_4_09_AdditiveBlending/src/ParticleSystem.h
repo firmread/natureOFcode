@@ -22,7 +22,7 @@ class ParticleSystem{
         
         ofPoint origin;
         ofImage img;
-        std::vector<Particle*> particles;
+        vector<Particle*> particles;
 };
 
 #endif /* defined(__NOC_4_03_ParticleSystemClass__ParticleSystem__) */

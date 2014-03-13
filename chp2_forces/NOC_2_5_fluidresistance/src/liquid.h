@@ -6,12 +6,8 @@
 //
 //
 
-#ifndef __NOC_2_5_fluidresistance__liquid__
-#define __NOC_2_5_fluidresistance__liquid__
-
-#include <iostream>
 #include "ofMain.h"
-#include "Mover.h"
+#include "mover.h"
 
 class liquid{
 public:
@@ -26,5 +22,3 @@ public:
     // Coefficient of drag
     float c;
 };
-
-#endif /* defined(__NOC_2_5_fluidresistance__liquid__) */

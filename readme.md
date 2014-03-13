@@ -9,10 +9,19 @@ Nature of Code examples
 
 **note**
 
-this folder is designed to go at the root level of an OF 0.07x installation -- because of how it's organized.
+this folder is designed to go at the root level of an OF 0.8.0 installation -- because of how it's organized.
 
-you should see: 
+download zip file and unpack in your OF root folder  
+or go to OF root folder via terminal and  
 
+```
+git clone https://github.com/firmread/NatureOfCode.git
+```
+
+
+in OF root folder you should see: 
+
+```
 * libs
 * apps
 * examples
@@ -20,4 +29,6 @@ you should see:
 * scripts
 
 etc. 
+
+```
 
