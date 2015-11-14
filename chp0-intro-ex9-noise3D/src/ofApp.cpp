@@ -1,36 +1,36 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
     ofSetFrameRate(30);
     ofBackground(0);
     
-    increment = 0.01;
-    // The noise function's 3rd argument, a global variable that increments once per cycle
+//    increment = 0.01;
+//    zincrement = 0.02;
     zoff = 0.0;
-    // We will increment zoff differently than xoff and yoff
-    zincrement = 0.02;
     
     img.allocate(ofGetWidth(), ofGetHeight(), OF_IMAGE_COLOR);
     
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
-    ofPixels pixels = img.getPixelsRef();
+void ofApp::update(){
+    
+    increment = ofMap(mouseX, 0, ofGetWidth(), 0.005, 0.1, true);
+    zincrement = ofMap(mouseY, 0, ofGetHeight(), 0.005, 0.1, true);
+    
+    ofPixels pixels = img.getPixels();
     
     float xoff = 0.0;
-    
-    // For every x,y coordinate in a 2D space, calculate a noise value and produce a brightness value
     for(int x = 0; x < ofGetWidth(); x++) {
-        xoff += increment; // Increment xoff 
-        float yoff = 0.0; // For every xoff, start yoff at 0
+        xoff += increment;
+        
+        float yoff = 0.0;
         for(int y = 0; y < ofGetHeight(); y++) {
-            yoff += increment; // Increment yoff
-             // Calculate noise and scale by 255
+            yoff += increment;
+            
             float bright = ofNoise(xoff, yoff, zoff)*255;
             pixels.setColor(x, y, ofColor(bright));
-            
         }
     }
     
@@ -39,51 +39,54 @@ void testApp::update(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
     img.draw(0,0);
+    ofDrawBitmapStringHighlight("increment = " + ofToString(increment)
+                                +"\nzincrement = " + ofToString(zincrement)
+                                , 10, 20);
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void testApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void ofApp::keyPressed(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void ofApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void ofApp::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void ofApp::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void ofApp::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void ofApp::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::windowResized(int w, int h){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::gotMessage(ofMessage msg){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }

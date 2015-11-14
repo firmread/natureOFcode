@@ -5,7 +5,6 @@ void ofApp::setup(){
 
     ofBackground(255);
     ofSetBackgroundAuto(false);
-    ofEnableSmoothing();
     
     haveNextNextGaussian = false;
 
@@ -25,11 +24,9 @@ void ofApp::draw(){
     
     xloc = (xloc * sd ) + mean;
     
-    ofFill();
-    ofColor col = ofColor(0,0,0,10);
-    ofSetColor(col);
     
-    ofDrawCircle(xloc, ofGetHeight()/2, 16);
+    ofSetColor(0,10);
+    ofDrawCircle(xloc, ofGetHeight()/2, 8,8);
 
 }
 
