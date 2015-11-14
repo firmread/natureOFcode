@@ -1,69 +1,44 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
-
-    ofSetFrameRate(60);     // I think a frameRate of 30 is making the app run very 'jittery'
-
-    //Sets white background
-    ofBackground(255);
+void ofApp::setup(){
     
-    ofSetVerticalSync(true);
-    //disable background cleanup
+    ofBackground(255);
     ofSetBackgroundAuto(false);
+    
+    w = walker();
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
-    w.step();
+void ofApp::update(){
+    
+    ofSetFrameRate(mouseX);
+    w.update();
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
-    w.render();
+void ofApp::draw(){
+    
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    ofScale(w.scale, w.scale);
+    w.draw();
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
-
-}
-
+void ofApp::keyPressed(int key){ }
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
-
-}
-
+void ofApp::keyReleased(int key){ }
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
-
-}
-
+void ofApp::mouseMoved(int x, int y ){ }
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
-
-}
-
+void ofApp::mouseDragged(int x, int y, int button){ }
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
-
-}
-
+void ofApp::mousePressed(int x, int y, int button){ }
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
-
-}
-
+void ofApp::mouseReleased(int x, int y, int button){ }
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
-
-}
-
+void ofApp::windowResized(int w, int h){ }
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
-
-}
-
+void ofApp::gotMessage(ofMessage msg){ }
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
+void ofApp::dragEvent(ofDragInfo dragInfo){ }

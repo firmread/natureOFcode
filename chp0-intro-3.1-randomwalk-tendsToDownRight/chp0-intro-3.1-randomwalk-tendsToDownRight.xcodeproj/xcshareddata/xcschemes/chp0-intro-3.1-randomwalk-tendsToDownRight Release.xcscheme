@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "chp0-intro-ex1-walkerTendsToDownRight.app"
-               BlueprintName = "chp0-intro-ex1-walkerTendsToDownRight"
-               ReferencedContainer = "container:chp0-intro-ex1-walkerTendsToDownRight.xcodeproj">
+               BuildableName = "chp0-intro-3.1-randomwalk-tendsToDownRight.app"
+               BlueprintName = "chp0-intro-3.1-randomwalk-tendsToDownRight"
+               ReferencedContainer = "container:chp0-intro-3.1-randomwalk-tendsToDownRight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "chp0-intro-ex1-walkerTendsToDownRight.app"
-            BlueprintName = "chp0-intro-ex1-walkerTendsToDownRight"
-            ReferencedContainer = "container:chp0-intro-ex1-walkerTendsToDownRight.xcodeproj">
+            BuildableName = "chp0-intro-3.1-randomwalk-tendsToDownRight.app"
+            BlueprintName = "chp0-intro-3.1-randomwalk-tendsToDownRight"
+            ReferencedContainer = "container:chp0-intro-3.1-randomwalk-tendsToDownRight.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "chp0-intro-ex1-walkerTendsToDownRight.app"
-            BlueprintName = "chp0-intro-ex1-walkerTendsToDownRight"
-            ReferencedContainer = "container:chp0-intro-ex1-walkerTendsToDownRight.xcodeproj">
+            BuildableName = "chp0-intro-3.1-randomwalk-tendsToDownRight.app"
+            BlueprintName = "chp0-intro-3.1-randomwalk-tendsToDownRight"
+            ReferencedContainer = "container:chp0-intro-3.1-randomwalk-tendsToDownRight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "chp0-intro-ex1-walkerTendsToDownRight.app"
-            BlueprintName = "chp0-intro-ex1-walkerTendsToDownRight"
-            ReferencedContainer = "container:chp0-intro-ex1-walkerTendsToDownRight.xcodeproj">
+            BuildableName = "chp0-intro-3.1-randomwalk-tendsToDownRight.app"
+            BlueprintName = "chp0-intro-3.1-randomwalk-tendsToDownRight"
+            ReferencedContainer = "container:chp0-intro-3.1-randomwalk-tendsToDownRight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

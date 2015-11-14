@@ -11,7 +11,7 @@ void ofApp::setup(){
 void ofApp::update(){
     
     int index = int(ofRandom(ARRAYSIZE));
-    speed = ofMap(mouseX, 0, ofGetWidth(), 1, 30);
+    speed = ofMap(mouseX, 0, ofGetWidth(), 1, 30, true);
     randomCounts[index] += speed;
 }
 

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "walker.h"
 
 class ofApp : public ofBaseApp{
 
@@ -10,7 +9,7 @@ public:
     void update();
     void draw();
 
-    void keyPressed(int key);
+    void keyPressed  (int key);
     void keyReleased(int key);
     void mouseMoved(int x, int y );
     void mouseDragged(int x, int y, int button);
@@ -19,6 +18,9 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-
-    walker w;
+		
+    float gaussian();
+    
+    float nextNextGaussian;
+    bool haveNextNextGaussian;
 };

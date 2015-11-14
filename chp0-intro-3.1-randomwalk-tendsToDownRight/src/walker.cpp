@@ -13,15 +13,15 @@ void walker::update() {
     cout << choice << endl;
     
     if (choice < 0.4) x++;
-    else if (choice < 0.6) x--;
-    else if (choice < 0.8) y++;
+    else if (choice < 0.5) x--;
+    else if (choice < 0.9) y++;
     else y--;
     
     int rangeWidth = (ofGetWidth()/2) /scale;
     int rangeHeight = (ofGetHeight()/2) /scale;
     
     x = overflow(x, -rangeWidth, rangeWidth);
-    y = constrain(y, -rangeHeight, rangeHeight);
+    y = overflow(y, -rangeHeight, rangeHeight);
 }
 
 

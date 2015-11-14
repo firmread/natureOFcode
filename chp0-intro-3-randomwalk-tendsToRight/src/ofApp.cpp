@@ -2,24 +2,26 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    
     ofBackground(255);
-    ofSetFrameRate(60);
     ofSetBackgroundAuto(false);
     
-    w = Walker();
-
+    w = walker();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    w.step();
-
+    
+    ofSetFrameRate(mouseX);
+    w.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    w.render();
-
+    
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    ofScale(w.scale, w.scale);
+    w.draw();
 }
 
 //--------------------------------------------------------------

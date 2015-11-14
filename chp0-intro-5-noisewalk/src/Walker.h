@@ -1,25 +1,20 @@
-//
-//  Walker.h
-//  NOC_I_1_RandomWalkTraditional
-//
-//  Created by Matthias Esterl on 7/7/13.
-//  http://madcity.at
-//
-
-#ifndef __NOC_I_1_RandomWalkTraditional__Walker__
-#define __NOC_I_1_RandomWalkTraditional__Walker__
-
+#pragma once
 #include "ofMain.h"
 
-class Walker {
-    public:
-        Walker();
-        void display();
-        void walk();
-        int constrain(int, int, int);
+class walker {
+public:
+    walker();
 
-        ofPoint location;
-        ofPoint noff;
+    void update();
+    void draw();
+    
+    int constrain(int, int, int);
+    int overflow(int, int, int);
+
+    ofPoint pos;
+    ofPoint noisePos;
+    float noiseSpeed;
+    
+    int scale;
 };
 
-#endif /* defined(__NOC_I_1_RandomWalkTraditional__Walker__) */

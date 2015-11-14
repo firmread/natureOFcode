@@ -9,7 +9,7 @@
 		<string>46</string>
 		<key>objects</key>
 		<dict>
-			<key>D8F60FD27DD793622F9868A2</key>
+			<key>5D1952784303707D67D9D5AC</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -18,20 +18,20 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>Walker.h</string>
+				<string>walker.h</string>
 				<key>path</key>
-				<string>src/Walker.h</string>
+				<string>src/walker.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>E9038F1C8262A14A608B26AD</key>
+			<key>D51BB542520B0F8CC89407D0</key>
 			<dict>
 				<key>fileRef</key>
-				<string>6E040A9FCF133056D1DBAF72</string>
+				<string>5C021147EA2314B7D7D90AA0</string>
 				<key>isa</key>
 				<string>PBXBuildFile</string>
 			</dict>
-			<key>6E040A9FCF133056D1DBAF72</key>
+			<key>5C021147EA2314B7D7D90AA0</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.cpp.cpp</string>
@@ -40,46 +40,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>Walker.cpp</string>
+				<string>walker.cpp</string>
 				<key>path</key>
-				<string>src/Walker.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>2D129AB0F7D46B8DFCEADEDB</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>testApp.h</string>
-				<key>path</key>
-				<string>src/testApp.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>29D734F0DDECC8C5978185D7</key>
-			<dict>
-				<key>fileRef</key>
-				<string>00A1BFCBB38848AD0E0C8539</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>00A1BFCBB38848AD0E0C8539</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>30</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>testApp.cpp</string>
-				<key>path</key>
-				<string>src/testApp.cpp</string>
+				<string>src/walker.cpp</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -365,8 +328,7 @@
 				<array>
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
-					<string>29D734F0DDECC8C5978185D7</string>
-					<string>E9038F1C8262A14A608B26AD</string>
+					<string>D51BB542520B0F8CC89407D0</string>
 				</array>
 				<key>isa</key>
 				<string>PBXSourcesBuildPhase</string>
@@ -406,7 +368,7 @@
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>chp0-intro-ex1-walkerTendsToDownRight</string>
+				<string>chp0-intro-3.1-randomwalk-tendsToDownRight</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -423,7 +385,7 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>chp0-intro-ex1-walkerTendsToDownRightDebug.app</string>
+				<string>chp0-intro-3.1-randomwalk-tendsToDownRightDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>
@@ -544,10 +506,8 @@
 					<string>E4B69E1D0A3A1BDC003C02F2</string>
 					<string>E4B69E1E0A3A1BDC003C02F2</string>
 					<string>E4B69E1F0A3A1BDC003C02F2</string>
-					<string>00A1BFCBB38848AD0E0C8539</string>
-					<string>2D129AB0F7D46B8DFCEADEDB</string>
-					<string>6E040A9FCF133056D1DBAF72</string>
-					<string>D8F60FD27DD793622F9868A2</string>
+					<string>5C021147EA2314B7D7D90AA0</string>
+					<string>5D1952784303707D67D9D5AC</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>

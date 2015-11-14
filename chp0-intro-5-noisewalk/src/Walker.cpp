@@ -1,41 +1,54 @@
-//
-//  Walker.cpp
-//  NOC_I_1_RandomWalkTraditional
-//
-//  Created by Matthias Esterl on 7/7/13.
-//  http://madcity.at
-//
 
-#include "Walker.h"
+#include "walker.h"
 
-Walker::Walker() {
-    location = ofPoint(ofGetWindowWidth()/2, ofGetWindowHeight()/2);
-    noff = ofPoint(ofRandom(1000), ofRandom(1000));
+walker::walker() {
+    // two ways to initialize ofPoint
+    pos = ofPoint(0,0);
+    noisePos.x = ofRandom(1000);
+    noisePos.y = ofRandom(1000);
+    
+    scale = 1;
+    noiseSpeed = 0.01;
 }
 
-void Walker::display() {
-    ofSetLineWidth(2);
+
+void walker::update() {
     
-    ofSetColor(127);
-    ofFill();
+    int rangeWidth = (ofGetWidth()/2) /scale;
+    int rangeHeight = (ofGetHeight()/2) /scale;
     
-    ofCircle(location, 24);
+    pos.x = ofMap(ofNoise(noisePos.x), 0, 1.0, -rangeWidth, rangeWidth);
+    pos.y = ofMap(ofNoise(noisePos.y), 0, 1.0, -rangeHeight, rangeHeight);
     
-    ofSetColor(0);
-    ofNoFill();
+    noisePos += ofPoint(noiseSpeed, noiseSpeed);
+
+    // screen wrapping functions are not needed as noises are mapped with windows range
     
-    ofCircle(location, 24);
+//    pos.x = overflow(pos.x, -rangeWidth, rangeWidth);
+//    pos.y = overflow(pos.y, -rangeHeight, rangeHeight);
 }
 
-void Walker::walk() {
-    location.x = ofMap(ofNoise(noff.x),0, 1, 0, ofGetWindowWidth());
-    location.y = ofMap(ofNoise(noff.y),0, 1, 0, ofGetWindowHeight());
+
+void walker::draw() {
     
-    noff += ofPoint(0.01, 0.01);
+    ofSetColor(255);
+    ofDrawCircle(pos, 26);
+
+    ofSetColor(ofColor::royalBlue);
+    ofDrawCircle(pos, 25);
+    
+    ofSetColor(255, 2);
+    ofSetRectMode(OF_RECTMODE_CENTER);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+    
 }
 
-int Walker::constrain(int amt, int low, int high) {
-    /* http://forum.openframeworks.cc/index.php?topic=1413.0 */
-    
-    return (amt < low) ? low : ((amt > high) ? high : amt);
+
+int walker::constrain(int input, int min, int max) {
+    return (input < min) ? min : ((input > max) ? max : input);
+}
+
+
+int walker::overflow(int input, int min, int max) {
+    return (input < min) ? max : ((input > max) ? min : input);
 }
