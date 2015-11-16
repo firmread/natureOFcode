@@ -32,5 +32,9 @@ etc.
 
 ```
 
-* use ProjectGenerator to generate project files
-(Settings> check Advanced Options) then (Update Multiple> Update Path) and choose this NatureOfCode folder. Select your desired platform accordingly and press update multiple. 
+* to use `ProjectGenerator` to generate project files for this entire repo: 
+	* ticks the box in `(Settings > Advanced Options)` 
+	* click on `(Update Multiple > Update Path)` 
+	* locate folder of this NatureOfCode repo on your computer 
+	* Select your desired platform accordingly
+	* press `update multiple`
