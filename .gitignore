@@ -1,64 +1,32 @@
-# Some general ignore patterns
-build/
-obj/
-*.o
-Debug*/
-Release*/
-*.mode*
-*.app/
-*.pyc
-.svn/
+# don't push project files
+*.cbp
+*.sln
+*.vcx*
+*.workspace*
+config.make
+Makefile
+*.xcodeproj
+*.plist
+*.xcconfig
+*.suo
 
-
-#XCode
-*.pbxuser
-*.perspective
-*.perspectivev3
-*.mode1v3
-*.mode2v3
-#XCode 4
-xcuserdata
-*.xcworkspace
-
-#Code::Blocks
 *.depend
 *.layout
+*.mode*v3
+*.pbxuser
+*.app*
+*.DS_*
+*.xcworkspacedata
+xcuserdata/
+project.xcworkspace
 
-#Visual Studio
-*.sdf
 *.opensdf
+*.sdf
 *.suo
-ipch/
+*.ipch
 
-#Eclipse
-.metadata
-local.properties
-.externalToolBuilders
-
-
-# OS-specific ignore patterns
-
-#Linux
-*~
-# KDE
-.directory
-
-#OSX
-.DS_Store
-*.swp
-*~.nib
-# Thumbnails
-._*
-
-#Windows
-# Windows image file caches
-Thumbs.db
-# Folder config file
-Desktop.ini
-
-#Android
-.csettings
-/libs/openFrameworksCompiled/project/android/paths.make
-
-# Miscellaneous
-.mailmap
+.svn/
+obj/
+bin/
+build/
+!data/

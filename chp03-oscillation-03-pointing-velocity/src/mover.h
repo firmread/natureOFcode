@@ -1,22 +1,12 @@
-//
-//  Mover.h
-//  NOC_3_02_forces_angular_motion
-//
-//  Created by Jason McDermott on 31/01/13.
-//
-//
+#pragma once
 
-#ifndef NOC_3_02_forces_angular_motion_Mover_h
-#define NOC_3_02_forces_angular_motion_Mover_h
-
-
-class Mover {
+class mover {
 public:
     
-    ofVec2f location, velocity, acceleration;
+    ofPoint location, velocity, acceleration;
     float topspeed, xoff, yoff, r = 16;
     
-    Mover() {
+    mover() {
         location.set(ofGetWidth()/2, ofGetHeight()/2);
         velocity.set(0,0);
         topspeed = 4;
@@ -26,11 +16,8 @@ public:
     
     void update() {
         
-        ofVec2f mouse;
-        mouse.set(ofGetMouseX(), ofGetMouseY());
-        ofVec2f dir;
-        dir.set(mouse);
-        dir -= location;
+        ofPoint mouse(ofGetMouseX(), ofGetMouseY());
+        ofPoint dir(mouse-location);
         dir.normalize();
         dir *= 0.5;
         acceleration = dir;
@@ -42,26 +29,17 @@ public:
     
     void display() {
         
-        ofVec2f v1(location);
-        ofVec2f v2(velocity);
+        ofPoint v1(location);
+        ofPoint v2(velocity);
         float theta = v1.angle(v2);
-        
-        ofSetLineWidth(2);
-        
-        
         
         ofPushMatrix();
         ofRectMode(OF_RECTMODE_CENTER);
         ofTranslate(location.x, location.y);
         ofRotate(theta);
 
-        ofNoFill();
-        ofSetColor(0);
-        ofRect(0, 0, 30, 10);
-        
-        ofFill();
         ofSetColor(127);
-        ofRect(0, 0, 30, 10);
+        ofDrawRectangle(0, 0, 30, 10);
         ofPopMatrix();
     }
     
@@ -83,6 +61,3 @@ public:
     }
 
 };
-
-
-#endif
