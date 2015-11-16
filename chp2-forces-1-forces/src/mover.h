@@ -10,7 +10,7 @@
 
 class mover{
 public:
-    void setup();
+    mover();
     void applyForce(ofPoint force);
     void update();
     void display();

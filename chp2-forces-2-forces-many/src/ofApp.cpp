@@ -13,7 +13,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetFrameRate(60);
-    
+    ofSetCircleResolution(100);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     ofBackground(255);

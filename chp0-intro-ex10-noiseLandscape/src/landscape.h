@@ -3,19 +3,20 @@
 
 #include "ofMain.h"
 
-class Landscape {
+class landscape {
     
-    public:
-    int scl;           // size of each cell
-    int w, h;           // width and height of thingie
-    int rows, cols;    // number of rows and columns
-    float zoff = 0.0;  // perlin noise argument
+public:
+    int scl;
+    int w, h;
+    int rows, cols;
+    float zoff;
     
     vector< vector<float> > z;
-    //float z[][];       // using an array to store all the height values
+    //float z[][];
+    //just like two-dimensional array
     
-    Landscape ();
-    Landscape (int scl_, int w_, int h_);
-    void calculate();
-    void render();
+    landscape ();
+    landscape (int _scl, int _w, int _h);
+    void update();
+    void draw();
 };

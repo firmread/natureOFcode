@@ -29,7 +29,7 @@ void ofApp::draw(){
     
     ofEnableSmoothing();
     ofSetColor(255,10);
-    ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
     
     if((location.x > ofGetWidth()) || (location.x < 0 )){
         velocity.x *= -1;
@@ -41,7 +41,7 @@ void ofApp::draw(){
     
     // Display circle at x location
     ofSetColor(0);
-    ofCircle(location.x, location.y, 8);
+    ofDrawCircle(location.x, location.y, 8);
 }
 
 //--------------------------------------------------------------

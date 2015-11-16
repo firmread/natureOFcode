@@ -23,12 +23,12 @@ void ofApp::draw(){
     float m = mouse.length();
     ofSetColor(0);
     ofFill();
-    ofRect(0, 0, m, 10);
+    ofDrawRectangle(0, 0, m, 10);
     
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofSetLineWidth(2);
     ofNoFill();
-    ofLine(0, 0, mouse.x, mouse.y);
+    ofDrawLine(0, 0, mouse.x, mouse.y);
 }
 
 //--------------------------------------------------------------

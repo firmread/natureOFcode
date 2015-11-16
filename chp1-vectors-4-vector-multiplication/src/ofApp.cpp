@@ -25,7 +25,7 @@ void ofApp::draw(){
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
     ofSetLineWidth(2);
     ofSetColor(0);
-    ofLine(0, 0, mouse.x, mouse.y);
+    ofDrawLine(0, 0, mouse.x, mouse.y);
 }
 
 //--------------------------------------------------------------

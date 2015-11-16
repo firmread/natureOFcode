@@ -3,7 +3,7 @@
 
 class mover{
 public:
-    void setup();
+    mover();
     void update();
     void display();
     void checkEdges();

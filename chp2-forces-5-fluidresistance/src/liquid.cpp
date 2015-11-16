@@ -41,6 +41,5 @@ ofPoint liquid::drag(mover m){
 
 void liquid::display(){
     ofSetColor(50);
-    ofFill();
-    ofRect(x, y, w, h);
+    ofDrawRectangle(x, y, w, h);
 }

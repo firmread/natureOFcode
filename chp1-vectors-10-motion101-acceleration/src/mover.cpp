@@ -8,7 +8,7 @@
 
 #include "mover.h"
 
-void mover::setup(){
+mover::mover(){
     // Start in the center
     location.set(ofGetWidth()/2, ofGetHeight()/2);
     velocity.set(0,0);
@@ -36,13 +36,7 @@ void mover::update(int x, int y){
 void mover::display(){
 
     ofSetColor(127);
-    ofFill();
-    ofCircle(location.x, location.y, 24);
-    
-    ofSetColor(0);
-    ofSetLineWidth(2);
-    ofNoFill();
-    ofCircle(location.x, location.y, 24);
+    ofDrawCircle(location.x, location.y, 24);
 
 }
 

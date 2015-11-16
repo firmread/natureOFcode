@@ -15,11 +15,10 @@
 void ofApp::setup(){
     
     ofSetFrameRate(60);
-    
+    ofSetCircleResolution(100);
     ofEnableSmoothing();
     ofBackground(255);
     
-    mover.setup();
 }
 
 //--------------------------------------------------------------

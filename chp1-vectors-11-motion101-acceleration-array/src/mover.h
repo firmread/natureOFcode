@@ -11,7 +11,7 @@
 
 class mover{
 public:
-    void setup();
+    mover();
     void update(int x, int y);
     void display();
     void checkEdges();

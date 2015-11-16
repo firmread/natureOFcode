@@ -8,7 +8,6 @@ void ofApp::setup(){
     ofEnableSmoothing();
     ofBackground(255);
     
-    m.setup();
 }
 
 //--------------------------------------------------------------

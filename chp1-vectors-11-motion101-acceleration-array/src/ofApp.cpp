@@ -15,18 +15,15 @@
 void ofApp::setup(){
     
     ofSetFrameRate(60);
-    
+    ofSetCircleResolution(100);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     ofBackground(255);
-    for (int i = 0; i < NUM_MOVER ; i++) {
-        movers[i].setup();
-    }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
     
     for (int i = 0; i < NUM_MOVER ; i++) {
         movers[i].update(mouseX, mouseY);

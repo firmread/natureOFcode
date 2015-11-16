@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Landscape.h"
+#include "landscape.h"
 
 class ofApp : public ofBaseApp{
 
@@ -20,7 +20,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    Landscape land;
+    landscape land;
     float theta;
 		
 };

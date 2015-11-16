@@ -15,6 +15,7 @@
 void ofApp::setup(){
     
     ofSetFrameRate(60);
+    ofSetCircleResolution(100);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     ofBackground(255);
@@ -28,7 +29,6 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
     
     for (int i = 0; i<NUM_MOVER; i++) {
         ofPoint wind(0.01, 0);

@@ -43,13 +43,13 @@ void ofApp::draw(){
     //draw inside first
     ofSetColor(127);
     ofFill();
-    ofCircle(x, y, 24);
+    ofDrawCircle(x, y, 24);
     
     //draw the outline
     ofSetColor(0);
     ofNoFill();
     ofSetLineWidth(2);
-    ofCircle(x, y, 24);
+    ofDrawCircle(x, y, 24);
 }
 
 //--------------------------------------------------------------
