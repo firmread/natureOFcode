@@ -11,7 +11,7 @@ Nature of Code examples
 
 this folder is designed to go in `apps` folder of an OF 0.9.0 installation
 
-download zip file and unpack in your `OF/apps` folder  
+1. download zip file and unpack in your `OF/apps` folder  
 or go to `OF/apps` folder via terminal and run: 
 
 ```
@@ -19,7 +19,7 @@ git clone https://github.com/firmread/NatureOfCode.git
 ```
 
 
-in OF folder you should see: 
+2. in OF folder you should see: 
 
 ```
 * libs
@@ -32,3 +32,5 @@ etc.
 
 ```
 
+3. use ProjectGenerator to generate project files
+(Settings> check Advanced Options) then (Update Multiple> Update Path) and choose this NatureOfCode folder. Select your desired platform accordingly and press update multiple. 
