@@ -4,17 +4,13 @@
 void ofApp::setup(){
     ofEnableSmoothing();
     ofBackground(255);
-
 }
-
 //--------------------------------------------------------------
 void ofApp::update(){
 
 }
-
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
     ofPoint mouse(mouseX, mouseY);
     ofPoint center(ofGetWidth()/2, ofGetHeight()/2);
     mouse -= center;
@@ -26,7 +22,6 @@ void ofApp::draw(){
     ofNoFill();
     ofDrawLine(0, 0, mouse.x, mouse.y);
 }
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){ }
 //--------------------------------------------------------------
