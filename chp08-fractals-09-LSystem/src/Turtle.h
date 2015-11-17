@@ -19,7 +19,7 @@ public:
         for (int i = 0; i < todo.length(); i++) {
             char c = todo.at(i);
             if (c == 'F' || c == 'G') {
-                ofLine(0,0,len,0);
+                ofDrawLine(0,0,len,0);
                 ofTranslate(len,0);
             }
             else if (c == '+') {
