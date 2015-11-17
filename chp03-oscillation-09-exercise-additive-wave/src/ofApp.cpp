@@ -8,54 +8,48 @@
 // Maybe better for this answer to be OOP???
 
 
-#include "testApp.h"
+#include "ofApp.h"
 
-void testApp::setup(){
+void ofApp::setup(){
 
-    ofSetFrameRate(30);
-    ofBackground(255);
-    ofSetVerticalSync(true);
+    ofSetFrameRate(60);
+    ofBackground(0);
     ofEnableSmoothing();
-    ofEnableAlphaBlending();
-    glEnable(GL_DEPTH_TEST);
 
     maxwaves = 5;
     xspacing = 8;
     w = ofGetWidth() + 16;
     
-    for (int i=0;i<maxwaves;i++) {
-        amplitude.push_back(0.0);
-        dx.push_back(0.0);
-    }
-    
     for (int i = 0; i < maxwaves; i++) {
-        amplitude[i] = ofRandom(10,30);
+        
+        float a = ofRandom(10,30);
+        amplitude.push_back(a);
+        
         float period = ofRandom(100,300); // How many pixels before the wave repeats
-        dx[i] = (TWO_PI / period) * xspacing;
+        float d = (TWO_PI / period) * xspacing;
+        dx.push_back(d);
+        
     }
-    
+
     for (int i=0;i<w/xspacing;i++) {
         yvalues.push_back(0.0);
     }
     
-//    yvalues = new float[w/xspacing];
 
     
 }
 
-void testApp::update(){
+void ofApp::update(){
     calcWave();
 }
 
 
-void testApp::draw(){
-
-    ofBackground(0);
+void ofApp::draw(){
     renderWave();
 
 }
 
-void testApp::calcWave() {
+void ofApp::calcWave() {
     // Increment theta (try different values for 'angular velocity' here
     theta += 0.02;
     
@@ -76,55 +70,19 @@ void testApp::calcWave() {
     }
 }
 
-void testApp::renderWave() {
-    // A simple way to draw the wave with an ellipse at each location
-//    noStroke();
-    
-    ofSetColor(255,50);
-//    ellipseMode(CENTER);
+void ofApp::renderWave() {
+    ofSetColor(255,70);
     for (int i = 0; i < yvalues.size(); i++) {
-        ofCircle(i * xspacing, ofGetHeight()/2 + yvalues[i], 16, 16);
+        ofDrawCircle(i * xspacing, ofGetHeight()/2 + yvalues[i], 8);
     }
 }
 
-
-void testApp::mouseMoved(int x, int y ){
-
-}
-
-void testApp::keyPressed(int key){
-
-}
-
-void testApp::keyReleased(int key){
-
-}
-
-void testApp::mouseDragged(int x, int y, int button){
-
-}
-
-void testApp::mousePressed(int x, int y, int button){
-
-}
-
-void testApp::mouseReleased(int x, int y, int button){
-
-}
-
-void testApp::windowResized(int w, int h){
-
-}
-
-void testApp::gotMessage(ofMessage msg){
-
-}
-
-void testApp::dragEvent(ofDragInfo dragInfo){
-
-}
-
-
-
-
-
+void ofApp::mouseMoved(int x, int y ){ }
+void ofApp::keyPressed(int key){ }
+void ofApp::keyReleased(int key){ }
+void ofApp::mouseDragged(int x, int y, int button){ }
+void ofApp::mousePressed(int x, int y, int button){ }
+void ofApp::mouseReleased(int x, int y, int button){ }
+void ofApp::windowResized(int w, int h){ }
+void ofApp::gotMessage(ofMessage msg){ }
+void ofApp::dragEvent(ofDragInfo dragInfo){ }
