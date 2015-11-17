@@ -1,14 +1,6 @@
-//
-//  Mover.cpp
-//  NOC_3_3_pointingDirection
-//
-//  Created by Maria Paula Saba dos Reis on 2/13/13.
-//
-//
+#include "mover.h"
 
-#include "Mover.h"
-
-void Mover::setup(){
+mover::mover(){
     location.set(ofRandomWidth(), ofRandomHeight());
     velocity.set(0, 0);
     topSpeed = 6;
@@ -16,43 +8,31 @@ void Mover::setup(){
     cor = ofRandom(255);
 }
 
-void Mover::setTarget(const ofVec2f & target, float diff){
+void mover::setTarget(const ofPoint & target, float diff){
     acceleration = target - location;
     acceleration.normalize();
     acceleration *= diff;
 }
 
-void Mover::update(){
-    // acceleration towards the mouse is set in testApp::setTarget
+void mover::update(){
     velocity += acceleration;
     velocity.limit(topSpeed);
     location += velocity;
 }
 
-
-void Mover::draw(){
+void mover::draw(){
     ofSetColor(cor, 125);
-    
     float angle = ofRadToDeg(atan2(velocity.y,velocity.x)) + 90;
     
     ofPushMatrix();
-    
-    ofTranslate(location.x, location.y);
-    ofRotate(angle);
-    
-    ofTriangle(-size+5, size, size-5, size, 0, -size);
-    //ofEllipse(location, size, size);    
+        ofTranslate(location.x, location.y);
+        ofRotate(angle);
+        ofDrawTriangle(-size+5, size, size-5, size, 0, -size);
     ofPopMatrix();
-    
-    
-    cout << angle << endl;
 
-    
 }
 
-
-
-void Mover::checkEdges(){
+void mover::checkEdges(){
     
     if (location.x > ofGetWidth()){
         location.x = 0;

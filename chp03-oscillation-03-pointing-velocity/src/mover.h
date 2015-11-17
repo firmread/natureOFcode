@@ -29,14 +29,15 @@ public:
     
     void display() {
         
-        ofPoint v1(location);
-        ofPoint v2(velocity);
-        float theta = v1.angle(v2);
+//        ofPoint v1(location);
+//        ofPoint v2(velocity);
+//        float theta = v1.angle(v2);
+        float angle = ofRadToDeg(atan2(velocity.y,velocity.x));
         
         ofPushMatrix();
         ofRectMode(OF_RECTMODE_CENTER);
         ofTranslate(location.x, location.y);
-        ofRotate(theta);
+        ofRotate(angle);
 
         ofSetColor(127);
         ofDrawRectangle(0, 0, 30, 10);
