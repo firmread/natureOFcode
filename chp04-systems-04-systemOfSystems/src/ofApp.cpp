@@ -10,7 +10,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    for (ParticleSystem* &ps : systems) {
+    for (auto &ps: systems) {
         ps->addParticle();
         ps->update();
     }
@@ -19,7 +19,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    for (auto &ps : systems) {
+    for (auto &ps: systems) {
         ps->display();
     }
 }
@@ -34,8 +34,7 @@ void ofApp::mouseMoved(int x, int y ){ }
 void ofApp::mouseDragged(int x, int y, int button){ }
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
-    systems.push_back(new ParticleSystem(ofPoint(x, y)));
+    systems.push_back(new particleSystem(ofPoint(x, y)));
 }
 
 //--------------------------------------------------------------

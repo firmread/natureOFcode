@@ -2,16 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
     ofSetFrameRate(60);
     ofBackground(255);
     
-    ps = new ParticleSystem(ofPoint(ofGetWidth()/2, 50));
+    ps = new particleSystem(ofPoint(ofGetWidth()/2, 50));
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
     ps->addParticle();
     ps->update();
 }
@@ -19,7 +17,6 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ps->display();
-    
 }
 
 //--------------------------------------------------------------

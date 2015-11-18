@@ -6,7 +6,7 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(255);
     
-    ps = new ParticleSystem(ofPoint(ofGetWidth()/2, 50));
+    ps = new particleSystem(ofPoint(ofGetWidth()/2, 50));
 }
 
 //--------------------------------------------------------------

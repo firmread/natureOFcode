@@ -15,7 +15,6 @@ void ofApp::update(){
     p->update();
     if(p->isDead()){
         p = new particle(ofPoint(ofGetWidth()/2, 20));
-        //cout << "particle dead!" << endl;
     }
 }
 
