@@ -9,7 +9,7 @@ natureOFcode Examples
 
   
 ### donate
-please consider donating to help me to maintain this repo up to date in the future
+please consider donating to help me keep this repo updated in the future
 
 
 <div class="header">
