@@ -1,11 +1,3 @@
-//
-//  Particle.cpp
-//  NOC_4_01_SingleParticle
-//
-//  Created by Matthias Esterl on 7/4/13.
-//
-//
-
 #include "Particle.h"
 
 Particle::Particle( ofPoint l ) {
