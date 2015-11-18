@@ -7,6 +7,16 @@ Nature of Code examples
 * Free video lessons (in Processing) can also be found at [Shiffman's Vimeo page](https://vimeo.com/shiffman)
 
 
+  
+### donate
+please consider donating to help me maintain this repo up to date in the future
+
+
+<div class="header">
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DBGRDHB67M764"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt=""></a>
+</div>  
+
+
 ###installations
 
 this folder is designed to go in `apps` folder of an OF 0.9.0 installation
@@ -40,14 +50,6 @@ etc.
 	* press `update multiple`
   
   
-  
-### donate
-please consider donating to help me maintain this repo up to date in the future
-
-
-<div class="header">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DBGRDHB67M764"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt=""></a>
-</div>  
   
 
 ### contributing
