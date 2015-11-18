@@ -5,7 +5,7 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(255);
     
-    p = new Particle(ofPoint(ofGetWidth()/2, 20));
+    p = new particle(ofPoint(ofGetWidth()/2, 20));
 
 }
 
@@ -14,8 +14,8 @@ void ofApp::update(){
     
     p->update();
     if(p->isDead()){
-        p = new Particle(ofPoint(ofGetWidth()/2, 20));
-        //cout << "Particle dead!" << endl;
+        p = new particle(ofPoint(ofGetWidth()/2, 20));
+        //cout << "particle dead!" << endl;
     }
 }
 

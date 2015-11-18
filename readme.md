@@ -1,4 +1,4 @@
-Nature of Code examples
+natureOFcode Examples
 ==========
 ###openFrameworks rendition
 
@@ -9,7 +9,7 @@ Nature of Code examples
 
   
 ### donate
-please consider donating to help me maintain this repo up to date in the future
+please consider donating to help me to maintain this repo up to date in the future
 
 
 <div class="header">
