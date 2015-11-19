@@ -45,21 +45,30 @@ public:
         bd.type			= density <= 0.0 ? b2_staticBody : b2_dynamicBody;
         body			= b2dworld->CreateBody(&bd);
         
+        // with some help from http://stackoverflow.com/questions/6829133/box2d-variable-length-array-of-non-pod-element-type-b2vec2
         
         b2ChainShape chain;
         vector<ofPoint>&pts = ofPolyline::getVertices();
         b2Vec2 *vertices = new b2Vec2[(int)size()];
         for(int i=0; i<(int)size(); i++) {
-//            //screenPtToWorldPt(pts[i-1])
             vertices[i].Set(screenPtToWorldPt(pts[i]).x, screenPtToWorldPt(pts[i]).y);
         }
+//        vector<b2Vec2> vertices;
+//        for(int i=0; i<(int)size(); i++) {
+//            vertices.push_back(b2Vec2(screenPtToWorldPt(pts[i])));
+//        }
         chain.CreateChain(vertices, size());
         body->CreateFixture(&chain, density);
         
         
         mesh.clear();
         mesh.setUsage(body->GetType()==b2_staticBody?GL_STATIC_DRAW:GL_DYNAMIC_DRAW);
-        mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+        mesh.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
+        
+        /// OF_PRIMITIVE_TRIANGLES, OF_PRIMITIVE_TRIANGLE_STRIP,
+        /// OF_PRIMITIVE_TRIANGLE_FAN, OF_PRIMITIVE_LINES, OF_PRIMITIVE_LINE_STRIP,
+        /// OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTS.
+        
         for(int i=0; i<(int)size(); i++) {
             mesh.addVertex(ofVec3f(pts[i].x, pts[i].y));
         }
@@ -94,7 +103,7 @@ public:
         ofPolyline::clear();
         mesh.clear();
         mesh.setUsage(body->GetType()==b2_staticBody?GL_STATIC_DRAW:GL_DYNAMIC_DRAW);
-        mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+        mesh.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
         
         for (b2Fixture * f = body->GetFixtureList(); f; f = f->GetNext()) {
             b2EdgeShape * edge = (b2EdgeShape*)f->GetShape();
