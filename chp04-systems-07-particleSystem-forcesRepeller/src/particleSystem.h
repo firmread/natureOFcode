@@ -1,0 +1,17 @@
+#pragma once
+#include "ofMain.h"
+#include "particle.h"
+#include "Repeller.h"
+
+class particleSystem{
+public:
+    particleSystem(ofPoint);
+    void update();
+    void display();
+    void applyForce(ofPoint);
+    void applyRepeller(repeller);
+    void addParticle();
+    
+    ofPoint origin;
+    vector<particle*> particles;
+};

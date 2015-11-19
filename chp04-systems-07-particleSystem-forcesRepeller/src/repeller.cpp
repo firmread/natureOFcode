@@ -1,29 +1,15 @@
-//
-//  Repeller.cpp
-//  NOC_4_07_ParticleSystemForcesRepeller
-//
-//  Created by Matthias Esterl on 7/5/13.
-//
-//
+#include "repeller.h"
 
-#include "Repeller.h"
-
-Repeller::Repeller(ofPoint l) {
+repeller::repeller(ofPoint l) {
     location = l;
 }
 
-void Repeller::display() {    
-    ofFill();
+void repeller::display() {
     ofSetColor( 175);
-    ofCircle(location, 24);
-    
-    ofNoFill();
-    ofSetLineWidth(2);
-    ofSetColor( 0);
-    ofCircle(location, 24);
+    ofDrawCircle(location, 24);
 }
 
-ofPoint Repeller::repel(Particle p) {
+ofPoint repeller::repel(particle p) {
     float G = 100;                              // Gravitational Constant
     
     ofPoint dir = location-p.location;          // Calculate direction of force

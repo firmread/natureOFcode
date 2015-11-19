@@ -1,28 +1,33 @@
+// learn more about C++ std::vector at
+// http://en.cppreference.com/w/cpp/container/vector
+
 #include "ofApp.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     
     ofSetFrameRate(60);
-    ofBackground(0);
-    
-    img.load("texture.png");
-    ps = new particleSystem(ofPoint(ofGetWidth()/2, 50), img);
+    ofBackground(255);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    particle* p = new particle(ofPoint(ofGetWidth()/2, 50));
+    particles.push_back(p);
     
-    ps->update();
-    for (int i = 0; i < 10; i++) {
-        ps->addParticle();
+    for (int i = 0; i < particles.size(); i++){
+        particles[i]->update();
+        if(particles[i]->isDead()){
+            particles.erase(particles.begin() + i);
+        }
     }
-
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ps->display();
+    for (auto& p: particles){
+        p->display();
+    }
 
 }
 

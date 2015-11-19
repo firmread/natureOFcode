@@ -5,8 +5,8 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(255);
     
-    ps = new ParticleSystem(ofPoint(ofGetWidth()/2, 50));
-    repeller = new Repeller(ofPoint(ofGetWidth()/2, ofGetHeight()/2));
+    ps = new particleSystem(ofPoint(ofGetWidth()/2, 50));
+    r = new repeller(ofPoint(ofGetWidth()/2, ofGetHeight()/2));
 
 }
 
@@ -16,7 +16,7 @@ void ofApp::update(){
     
     ofPoint gravity = *new ofPoint(0,0.1);
     ps->applyForce(gravity);
-    ps->applyRepeller(*repeller);
+    ps->applyRepeller(*r);
     
     ps->update();
 
@@ -24,7 +24,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    repeller->display();
+    r->display();
     ps->display();
 
 }

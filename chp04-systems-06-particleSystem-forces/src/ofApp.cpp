@@ -6,15 +6,14 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(255);
     
-    ps = new ParticleSystem(ofPoint(ofGetWidth()/2, 50));
+    ps = new particleSystem(ofPoint(ofGetWidth()/2, 50));
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
     ps->addParticle();
-    
-    ofPoint gravity = *new ofPoint(0,0.1);
+    ofPoint gravity = *new ofPoint(0, 0.1);
     ps->applyForce(gravity);
     
     ps->update();
@@ -23,9 +22,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ps->display();
-
 }
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){ }
 //--------------------------------------------------------------

@@ -1,3 +1,6 @@
+// learn more about C++ Pointer (*) at
+// http://en.cppreference.com/w/cpp/language/pointer
+
 #include "ofApp.h"
 
 //--------------------------------------------------------------

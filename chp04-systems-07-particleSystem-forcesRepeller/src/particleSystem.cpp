@@ -1,44 +1,36 @@
-//
-//  ParticleSystem.cpp
-//  NOC_4_03_ParticleSystemClass
-//
-//  Created by Matthias Esterl on 7/4/13.
-//
-//
+#include "particleSystem.h"
 
-#include "ParticleSystem.h"
-
-ParticleSystem::ParticleSystem(ofPoint location) {
+particleSystem::particleSystem(ofPoint location) {
     origin = location;
 }
 
-void ParticleSystem::addParticle(){
-    particles.push_back(new Particle(origin));
+void particleSystem::addParticle(){
+    particles.push_back(new particle(origin));
 }
 
-void ParticleSystem::update(){    
+void particleSystem::update(){    
     for (int i = 0; i < particles.size(); i++){
         particles.at(i)->update();
         if(particles.at(i)->isDead()){
-            cout << "Particle dead!" << endl;
+            cout << "particle dead!" << endl;
             particles.erase(particles.begin() + i);
         }
     }
 }
 
-void ParticleSystem::display(){
+void particleSystem::display(){
     for (int i = 0; i < particles.size(); i++){
         particles.at(i)->display();
     }
 }
 
-void ParticleSystem::applyForce(ofPoint f) {
+void particleSystem::applyForce(ofPoint f) {
     for (auto &p : particles) {
         p->applyForce(f);
     }
 }
 
-void ParticleSystem::applyRepeller(Repeller r) {
+void particleSystem::applyRepeller(repeller r) {
     for (auto &p : particles) {
         ofPoint force = r.repel(*p);
         p->applyForce(force);

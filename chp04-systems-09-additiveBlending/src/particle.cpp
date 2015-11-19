@@ -1,14 +1,6 @@
-//
-//  Particle.cpp
-//  NOC_4_01_SingleParticle
-//
-//  Created by Matthias Esterl on 7/4/13.
-//
-//
+#include "particle.h"
 
-#include "Particle.h"
-
-Particle::Particle(ofPoint l, ofImage img_) {
+particle::particle(ofPoint l, ofImage img_) {
     acceleration.set(0,0.05);
     velocity.set(ofRandom(-1,1), ofRandom(-1,0));
     velocity *= 2;
@@ -18,13 +10,13 @@ Particle::Particle(ofPoint l, ofImage img_) {
     img = img_;
 }
 
-void Particle::update() {
+void particle::update() {
     velocity += acceleration;
     location += velocity;
     lifespan -= 2.0;
 }
 
-void Particle::display() {
+void particle::display() {
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 
     ofSetColor(255, lifespan);
@@ -33,7 +25,7 @@ void Particle::display() {
     ofDisableBlendMode();
 }
 
-bool Particle::isDead() {
+bool particle::isDead() {
     if (lifespan < 0.0) {
         return true;
     } else {
