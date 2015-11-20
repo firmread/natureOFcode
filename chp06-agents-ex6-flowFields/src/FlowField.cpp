@@ -12,15 +12,15 @@ FlowField::FlowField(int initResolution)
 
     // Using a one dimensional vector instead of 2 dimensional array as in NOC
     field = vector<float> (cols * rows);
-    ofVec2f screenCenter = ofVec2f(ofGetWidth() / 2,ofGetHeight() / 2);
+    ofPoint screenCenter = ofPoint(ofGetWidth() / 2,ofGetHeight() / 2);
 
      for(int rowPos=0; rowPos< rows ; rowPos++)
     {
         for(int colPos=0; colPos< cols ; colPos++)
         {
             // Not sure that this is the best way to do this, seems that we shouldn't need to make the adjustment to subtract 180 degree when x is greater than 0...
-            // Note that I also stored the angles in the vector instead of ofVec2fs - mainly because I didn't read the exercise instructions properly!
-            ofVec2f screenPosition = ofVec2f(colPos*resolution - screenCenter.x,rowPos*resolution - screenCenter.y);
+            // Note that I also stored the angles in the vector instead of ofPoints - mainly because I didn't read the exercise instructions properly!
+            ofPoint screenPosition = ofPoint(colPos*resolution - screenCenter.x,rowPos*resolution - screenCenter.y);
             float angle = ofRadToDeg(atan(screenPosition.y / screenPosition.x ));
             if(screenPosition.x > 0) angle -= 180 ;
             field[colPos + (rowPos * cols)] = angle;
@@ -33,7 +33,7 @@ void FlowField::displayFlowField()
 
     /*
     Uncomment to draw an x at the centre of the screen
-    ofVec2f screenCenter = ofVec2f(ofGetWidth() / 2,ofGetHeight() / 2);
+    ofPoint screenCenter = ofPoint(ofGetWidth() / 2,ofGetHeight() / 2);
     ofSetColor(255,0,0,255);
     ofLine(screenCenter.x - 50,screenCenter.y-50,screenCenter.x+50,screenCenter.y+50);
     ofLine(screenCenter.x + 50,screenCenter.y-50,screenCenter.x-50,screenCenter.y+50);

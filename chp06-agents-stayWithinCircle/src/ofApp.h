@@ -21,7 +21,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
     vector <Vehicle> v;
-    ofVec2f circleLocation;
+    ofPoint circleLocation;
     float circleRadius;
     bool debug;
 };

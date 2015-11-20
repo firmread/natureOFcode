@@ -9,10 +9,10 @@ public:
     
     float mass;    // Mass, tied to size
     float G;       // Gravitational Constant
-    ofVec2f location;   // Location
+    ofPoint location;   // Location
     bool dragging = false; // Is the object being dragged?
     bool rollover = false; // Is the mouse over the ellipse?
-    ofVec2f dragOffset;  // holds the offset for when object is clicked on
+    ofPoint dragOffset;  // holds the offset for when object is clicked on
     
     attractor() {
         location.set(ofGetWidth()/2,ofGetHeight()/2);
@@ -21,8 +21,8 @@ public:
         dragOffset.set(0,0);
     }
     
-    ofVec2f attract(mover m) {
-        ofVec2f force;
+    ofPoint attract(mover m) {
+        ofPoint force;
         force.set(location);
         force -= m.location;                                // Calculate direction of force
         float d = force.length();                           // Distance between objects
@@ -43,8 +43,8 @@ public:
     
     // The methods below are for mouse interaction
     void clicked(int mx, int my) {
-        ofVec2f a;
-        ofVec2f b;
+        ofPoint a;
+        ofPoint b;
         a.set(mx,my);
         b.set(location.x,location.y);
         b -= a;
@@ -57,8 +57,8 @@ public:
     }
     
     void hover(int mx, int my) {
-        ofVec2f a;
-        ofVec2f b;
+        ofPoint a;
+        ofPoint b;
         a.set(mx,my);
         b.set(location.x,location.y);
         b -= a;

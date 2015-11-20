@@ -1,15 +1,5 @@
-//
-//  Vehicle.cpp
-//  NOC_6_1_Seek_trail
-//
-//  Created by Maria Paula Saba on 3/17/13.
-//
-//
-
-#include "Vehicle.h"
-
-
-void Vehicle::setup(ofVec2f & l, float ts, float mf){
+#include "vehicle.h"
+void vehicle::setup(ofPoint & l, float ts, float mf){
     
     r = 4;
     maxForce = mf;
@@ -23,20 +13,16 @@ void Vehicle::setup(ofVec2f & l, float ts, float mf){
     
 }
 
-
-
-
-void Vehicle::applyForce(const ofVec2f & force){
-    ofVec2f f(force);
+void vehicle::applyForce(const ofPoint & force){
+    ofPoint f(force);
     acceleration += f;
 }
 
-
-void Vehicle::follow(Path & p){
+void vehicle::follow(path & p){
     radius = p.radius;
     
     // Predict location 25 (arbitrary choice) frames ahead
-    ofVec2f predict(velocity);
+    ofPoint predict(velocity);
     predict.normalize();
     predict *= 25;
     
@@ -49,11 +35,11 @@ void Vehicle::follow(Path & p){
     for (unsigned int i = 0; i < p.points.size()-1; i++) {
         
         // Look at a line segment
-        ofVec2f a(p.points[i]);
-        ofVec2f b(p.points[i+1]);
+        ofPoint a(p.points[i]);
+        ofPoint b(p.points[i+1]);
         
         // Get the normal point to that line
-        ofVec2f normalPoint = getNormalPoint(predictLoc, a, b);
+        ofPoint normalPoint = getNormalPoint(predictLoc, a, b);
         
         
         if (normalPoint.x <= a.x || normalPoint.x >= b.x) {
@@ -63,8 +49,6 @@ void Vehicle::follow(Path & p){
             
             normalPoint.set(b.x, b.y);
         }
-        
-            
             
             // How far away are we from the path?
         float distance = ofDist(predictLoc.x, predictLoc.y, normalPoint.x, normalPoint.y);
@@ -74,69 +58,53 @@ void Vehicle::follow(Path & p){
        
                 normal = normalPoint;
                 
-                ofVec2f dir = b - a;
+                ofPoint dir = b - a;
                 dir.normalize();
                 dir *= 10;  // This could be based on velocity instead of just an arbitrary 10 pixels
                 target.set(normalPoint);
                 target += dir;
             }
     }
-
     if (worldRecord > p.radius) {
         seek(target);
-    }    
-    
+    }
     cout << target.x << endl;
-   
-
-   
-    
-
 }
 
-
-ofVec2f Vehicle::getNormalPoint(ofVec2f p, ofVec2f a, ofVec2f b){
-    ofVec2f ap = p-a;
-    ofVec2f ab = b-a;
+ofPoint vehicle::getNormalPoint(ofPoint p, ofPoint a, ofPoint b){
+    ofPoint ap = p-a;
+    ofPoint ab = b-a;
     
     ab.normalize();
     ab*=ap.dot(ab);
-    ofVec2f normalPoint = a + ab;
+    ofPoint normalPoint = a + ab;
     return normalPoint;
-
-
 }
 
-
-void Vehicle::seek(const ofVec2f & target){
-    ofVec2f desired;
+void vehicle::seek(const ofPoint & target){
+    ofPoint desired;
     desired = target - location;
     
     if(desired.length() == 0) return;
     
-    
     desired.normalize();
     desired*=topSpeed;
     
-    ofVec2f steer;
+    ofPoint steer;
     steer = desired - velocity;
     steer.limit(maxForce);
     
     applyForce(steer);
-    
-    
 }
 
-void Vehicle::update(){
+void vehicle::update(){
     velocity += acceleration;
     location += velocity;
     velocity.limit(topSpeed);
     acceleration *= 0;
-    
-    
 }
 
-void Vehicle::draw(){
+void vehicle::draw(){
     
     ofSetColor(0);
     ofNoFill();
@@ -155,42 +123,29 @@ void Vehicle::draw(){
     ofPopMatrix();
 
     if(debug){
-    // Draw predicted future location
-    ofSetColor(0);
-    ofNoFill();
-    ofLine(location.x, location.y, predictLoc.x, predictLoc.y);
-    
-    ofSetColor(0);
-    ofFill();
-    ofEllipse(predictLoc.x, predictLoc.y, 4, 4);
-    
-    // Draw normal location
-    ofSetColor(0);
-    ofFill();
-    ofEllipse(normal.x, normal.y, 4, 4);
-    // Draw actual target (red if steering towards it)
-    ofNoFill();
-    ofLine(predictLoc.x, predictLoc.y, normal.x, normal.y);
-    
+        // Draw predicted future location
+        ofSetColor(0);
+        ofDrawLine(location.x, location.y, predictLoc.x, predictLoc.y);
+        
+        ofSetColor(0);
+        ofDrawCircle(predictLoc.x, predictLoc.y, 4);
+        
+        // Draw normal location
+        ofSetColor(0);
+        ofDrawCircle(normal.x, normal.y, 4);
+        // Draw actual target (red if steering towards it)
+        ofDrawLine(predictLoc.x, predictLoc.y, normal.x, normal.y);
         
         if (worldRecord > radius){
             ofSetColor(255, 0, 0);
-            ofFill();
-            ofEllipse(target.x, target.y, 4, 4);
+            ofDrawCircle(target.x, target.y, 4);
         }
-    
     }
-    
- 
-    
 }
 
-
-void Vehicle::borders(){
-
+void vehicle::borders(){
     if (location.x < -r) location.x = ofGetWidth()+r;
     //if (location.y < -r) location.y = height+r;
     if (location.x > ofGetWidth()+r) location.x = -r;
     //if (location.y > height+r) location.y = -r;
 }
-

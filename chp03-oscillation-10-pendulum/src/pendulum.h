@@ -4,7 +4,7 @@
 class pendulum {
 public:
     float ballRadius;
-    Boolean dragging;
+    bool dragging;
     
     void setup(ofPoint orig, float len);
     void update();

@@ -70,7 +70,7 @@ public:
         /// OF_PRIMITIVE_LINE_LOOP, OF_PRIMITIVE_POINTS.
         
         for(int i=0; i<(int)size(); i++) {
-            mesh.addVertex(ofVec3f(pts[i].x, pts[i].y));
+            mesh.addVertex(ofPoint(pts[i].x, pts[i].y));
         }
         
         flagHasChanged();
@@ -87,7 +87,7 @@ public:
         
     }
     
-    void addVertexes(vector <ofVec2f> &pts){
+    void addVertexes(vector <ofPoint> &pts){
         
         for (int i=0; i<pts.size(); i++) {
             ofPolyline::addVertex(pts[i].x, pts[i].y);
@@ -112,8 +112,8 @@ public:
                 ofPolyline::addVertex(worldPtToscreenPt(edge->m_vertex2));
                 ofPolyline::addVertex(worldPtToscreenPt(edge->m_vertex1));
                 
-                mesh.addVertex(ofVec3f(worldPtToscreenPt(edge->m_vertex2)));
-                mesh.addVertex(ofVec3f(worldPtToscreenPt(edge->m_vertex1)));
+                mesh.addVertex(ofPoint(worldPtToscreenPt(edge->m_vertex2)));
+                mesh.addVertex(ofPoint(worldPtToscreenPt(edge->m_vertex1)));
             }
         }
         

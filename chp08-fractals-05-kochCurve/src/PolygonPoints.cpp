@@ -3,7 +3,7 @@
 
 #include "PolygonPoints.h"
 
-PolygonPoints::PolygonPoints(int sidesInit,ofVec2f centInit, float sideLengthInit) {
+PolygonPoints::PolygonPoints(int sidesInit,ofPoint centInit, float sideLengthInit) {
     sides = sidesInit;
     center = centInit;
     sideLength = sideLengthInit;
@@ -12,10 +12,10 @@ PolygonPoints::PolygonPoints(int sidesInit,ofVec2f centInit, float sideLengthIni
     float intAngleSides = sumIntAngles / sides;     // angle between each pair of sides, divide total by number of sides
     float intAngleCenter = 180.0 - intAngleSides;   // internal angle between lines from center to points on edge, each int triangle has 2 angles which are half angle between sides, take them away from sum of int angles in a triangle
     distCentToPoint = sideLength / (2 * sin(ofDegToRad(intAngleCenter/2)) );
-    ofVec2f radiusVec = ofVec2f(0,distCentToPoint);
+    ofPoint radiusVec = ofPoint(0,distCentToPoint);
 
     for(int i = 0; i < sides; i++) {
-        ofVec2f p = radiusVec;
+        ofPoint p = radiusVec;
         p.rotate(i * intAngleCenter);
         p += center;
         points.push_back(p);
@@ -36,7 +36,7 @@ void PolygonPoints::display(bool showLines, bool showPoints){
     // ofLine(center.x,center.y,points[0].x,points[0].y);
 }
 
-vector<ofVec2f> PolygonPoints::getPoints() {
+vector<ofPoint> PolygonPoints::getPoints() {
     return points;
 }
 

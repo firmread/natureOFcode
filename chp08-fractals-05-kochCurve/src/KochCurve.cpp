@@ -1,6 +1,6 @@
 #include "KochCurve.h"
 
-KochCurve::KochCurve(ofVec2f a, ofVec2f b,int iterations) {
+KochCurve::KochCurve(ofPoint a, ofPoint b,int iterations) {
     KochLine kl = KochLine(a,b);
     lines.push_back(kl);
     for(int i = 0; i < iterations; i++) {
@@ -22,11 +22,11 @@ void KochCurve::generateLines(){
   for(int i = 0;  i < lines.size(); i++ ) {
     // Add four new lines.
 
-    ofVec2f a = lines[i].kochA();
-    ofVec2f b = lines[i].kochB();
-    ofVec2f c = lines[i].kochC();
-    ofVec2f d = lines[i].kochD();
-    ofVec2f e = lines[i].kochE();
+    ofPoint a = lines[i].kochA();
+    ofPoint b = lines[i].kochB();
+    ofPoint c = lines[i].kochC();
+    ofPoint d = lines[i].kochD();
+    ofPoint e = lines[i].kochE();
 
     next.push_back( KochLine(a,b));
     next.push_back( KochLine(b,c));
@@ -43,17 +43,17 @@ void KochCurve::generateLines(){
 * LINE FUNCTIONS
 */
 
-KochCurve::KochLine::KochLine(ofVec2f a, ofVec2f b) {
+KochCurve::KochLine::KochLine(ofPoint a, ofPoint b) {
     startPt = a;
     endPt = b;
 }
 
-ofVec2f KochCurve::KochLine::kochA(){
+ofPoint KochCurve::KochLine::kochA(){
     return startPt;
 }
 
-ofVec2f KochCurve::KochLine::kochB(){
-    ofVec2f v = endPt - startPt;
+ofPoint KochCurve::KochLine::kochB(){
+    ofPoint v = endPt - startPt;
     // One-third the length
     v /= 3;
     // Add that PVector to the beginning of the line to find the new point.
@@ -61,9 +61,9 @@ ofVec2f KochCurve::KochLine::kochB(){
     return v;
 }
 
-ofVec2f KochCurve::KochLine::kochC(){
-    ofVec2f a = startPt;
-    ofVec2f v = endPt - startPt;
+ofPoint KochCurve::KochLine::kochC(){
+    ofPoint a = startPt;
+    ofPoint v = endPt - startPt;
     // Move 1/3rd of the way to point B.
     v /= 3;
     a += v;
@@ -74,15 +74,15 @@ ofVec2f KochCurve::KochLine::kochC(){
     return a;
 }
 
-ofVec2f KochCurve::KochLine::kochD(){
-    ofVec2f v = endPt - startPt;
+ofPoint KochCurve::KochLine::kochD(){
+    ofPoint v = endPt - startPt;
     // Same thing here, only we need to move two-thirds along the line instead of one-third.
     v *= (2/3.0);
     v += startPt;
     return v;
 }
 
-ofVec2f KochCurve::KochLine::kochE(){
+ofPoint KochCurve::KochLine::kochE(){
     return endPt;
 }
 

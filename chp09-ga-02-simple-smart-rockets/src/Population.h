@@ -23,7 +23,7 @@ class Population {
 
     private:
 
-    ofVec2f target;
+    ofPoint target;
     static const int popSize = 100;
     Rocket population[popSize];
     vector<Rocket> matingPool;

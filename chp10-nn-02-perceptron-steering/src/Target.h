@@ -9,11 +9,11 @@ public:
 
     Target();
     void display();
-    ofVec2f getLocation(){ return location; };
+    ofPoint getLocation(){ return location; };
 
 private:
 
-    ofVec2f location;
+    ofPoint location;
 
 };
 

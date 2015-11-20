@@ -11,20 +11,20 @@ class DNA
 
 private:
     int lifetime;
-    vector<ofVec2f> genes;
+    vector<ofPoint> genes;
     float maxforce = 0.1;
 
 public:
     DNA() {};
     DNA(float _lifetime);
-    vector<ofVec2f> getGenes()
+    vector<ofPoint> getGenes()
     {
         return genes;
     };
     DNA crossover(DNA partner);
     void mutate(float mutationRate);
-    ofVec2f randomDirection();
-    void addGene(ofVec2f gene);
+    ofPoint randomDirection();
+    void addGene(ofPoint gene);
 };
 
 #endif // DNA_H_INCLUDED

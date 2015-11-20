@@ -1,7 +1,7 @@
 #include "Target.h"
 
 Target::Target(){
-    location = ofVec2f(ofRandom(ofGetWidth()),ofRandom(ofGetHeight()));
+    location = ofPoint(ofRandom(ofGetWidth()),ofRandom(ofGetHeight()));
 }
 
 void Target::display(){

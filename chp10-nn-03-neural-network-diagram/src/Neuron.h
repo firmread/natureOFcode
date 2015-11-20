@@ -11,7 +11,7 @@ class Neuron {
 
 private:
 
-    ofVec2f location;
+    ofPoint location;
     vector<Connection> connections;
     float sum = 0;
     int fireFrame = 0;
@@ -22,7 +22,7 @@ public:
     Neuron(float x, float y);
     void display();
     void addConnection(Connection c);
-    ofVec2f getLocation() { return location; };
+    ofPoint getLocation() { return location; };
     void feedforward(float input);
     void fire();
     void update();

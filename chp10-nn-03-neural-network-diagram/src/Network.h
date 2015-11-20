@@ -11,7 +11,7 @@ class Network {
 private:
 
     vector<Neuron*> neurons;
-    ofVec2f location;
+    ofPoint location;
 
 
 public:

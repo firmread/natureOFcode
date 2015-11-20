@@ -4,7 +4,7 @@
 
 Neuron::Neuron(float x, float y)
 {
-    location = ofVec2f(x,y);
+    location = ofPoint(x,y);
 }
 
 void Neuron::display()

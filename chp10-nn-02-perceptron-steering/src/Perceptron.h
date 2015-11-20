@@ -10,9 +10,9 @@ public:
 
    Perceptron(int n,float _learnConst);
    Perceptron() {};
-   ofVec2f feedforward(vector<ofVec2f> forces);
+   ofPoint feedforward(vector<ofPoint> forces);
    int activate(float sum);
-   void train(vector<ofVec2f> forces, ofVec2f error);
+   void train(vector<ofPoint> forces, ofPoint error);
    std::vector<float> weights;
 
 private:

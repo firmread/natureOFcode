@@ -1,10 +1,10 @@
 #pragma once
 #include "ofMain.h"
 
-class Path{
+class path{
 
 public:
-    vector<ofVec2f> points;
+    vector<ofPoint> points;
     float radius;
     
 

@@ -12,8 +12,8 @@ void Connection::display()
     ofSetColor(0,0,0,255);
     ofSetLineWidth(weight*10);
 
-    ofVec2f aLocation = a->getLocation();
-    ofVec2f bLocation = b->getLocation();
+    ofPoint aLocation = a->getLocation();
+    ofPoint bLocation = b->getLocation();
     //std::cout << "Locations: " << aLocation.x << " " << aLocation.y << std::endl;
     ofLine(aLocation.x, aLocation.y, bLocation.x, bLocation.y);
     if(sending) {
@@ -37,7 +37,7 @@ void Connection::update()
     if (sending)
     {
         //As long as we’re sending, interpolate our points.
-        ofVec2f bLocation = b->getLocation();
+        ofPoint bLocation = b->getLocation();
         sender.x = ofLerp(sender.x, bLocation.x, 0.1);
         sender.y = ofLerp(sender.y, bLocation.y, 0.1);
 

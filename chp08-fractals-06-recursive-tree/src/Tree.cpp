@@ -1,7 +1,7 @@
 #include "Tree.h"
 #include <iostream>
 
-Tree::Tree(float len, float ang, ofVec2f _startPoint)
+Tree::Tree(float len, float ang, ofPoint _startPoint)
 {
 
     maxLength = len;
@@ -10,7 +10,7 @@ Tree::Tree(float len, float ang, ofVec2f _startPoint)
     angle = ang;
     nextLengthMultiplier = 0.9;
 
-    ofVec2f trunkEnd = ofVec2f(startPoint.x,startPoint.y - maxLength);
+    ofPoint trunkEnd = ofPoint(startPoint.x,startPoint.y - maxLength);
     Branch trunk = Branch(maxLength,trunkEnd, this,-1);
     branches.push_back(trunk);
 }
@@ -20,11 +20,11 @@ void Tree::display()
 
     for (std::vector<Branch>::iterator it = branches.begin() ; it != branches.end(); ++it)
     {
-        ofVec2f ep = (*it).getEndPoint();
+        ofPoint ep = (*it).getEndPoint();
 
         int pPos = (*it).getParentPosition();
 
-        ofVec2f sp = startPoint;
+        ofPoint sp = startPoint;
         if(pPos>-1)
         {
             Branch thisParent = branches[pPos];
@@ -44,7 +44,7 @@ void Tree::display()
 * Would have preferred to pass in the Branch itself to the constructor of the next branch, but has having issues with this
 * so ended up just passing in the position of the current branch in the branches vector so that each branch tracks position of it's parent
 */
-Tree::Branch::Branch(float _length, ofVec2f _endPoint, Tree* t,int _parentPos)
+Tree::Branch::Branch(float _length, ofPoint _endPoint, Tree* t,int _parentPos)
 {
     length = _length;
     endPoint = _endPoint;
@@ -52,7 +52,7 @@ Tree::Branch::Branch(float _length, ofVec2f _endPoint, Tree* t,int _parentPos)
     parentPos = _parentPos;
 
     // Create a normalised vector pointing in the direction of the previous branch - if no previous just assume to be pointing directly up
-    ofVec2f previousDirection = ofVec2f(0,-1);
+    ofPoint previousDirection = ofPoint(0,-1);
     if(parentPos>-1)
     {
         Branch thisParent = t->branches[parentPos];
@@ -75,22 +75,22 @@ Tree::Branch::Branch(float _length, ofVec2f _endPoint, Tree* t,int _parentPos)
 }
 
 
-void Tree::Branch::nextBranch(Tree* t,ofVec2f previousDirection,float nextLength, float ang, int parentPosition)
+void Tree::Branch::nextBranch(Tree* t,ofPoint previousDirection,float nextLength, float ang, int parentPosition)
 {
-    ofVec2f nextEndPoint = previousDirection * nextLength;
+    ofPoint nextEndPoint = previousDirection * nextLength;
     nextEndPoint.rotate(ang);
     nextEndPoint += endPoint;
     Branch(nextLength,nextEndPoint,t,parentPosition);
 }
 
 
-ofVec2f Tree::Branch::getEndPoint()
+ofPoint Tree::Branch::getEndPoint()
 {
     return endPoint;
 }
 
 /*
-ofVec2f Tree::Branch::getParentEndPoint()
+ofPoint Tree::Branch::getParentEndPoint()
 {
     return parent->getEndPoint();
 }

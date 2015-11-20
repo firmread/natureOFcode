@@ -1,10 +1,3 @@
-//
-//  CA.cpp
-//  Exercise_7_01_WolframCA_randomizedrules
-//
-//  Created by Firm Read on 3/13/14.
-//
-//
 
 #include "CA.h"
 CA::CA(){
@@ -55,7 +48,7 @@ void CA::display(){
     for (int i =0; i<cells.size(); i++) {
         if (cells[i] == 1) ofSetColor(0);
         else               ofSetColor(255);
-        ofRect(i*w, generation*w, w, w);
+        ofDrawRectangle(i*w, generation*w, w, w);
     }
 }
 

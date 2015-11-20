@@ -65,6 +65,7 @@ It is possible by both direct and indirect contributions from public Nature of C
 #####Contributors including (but not limited to) (in alphabetical order) :  
 * [`Brett Renfer`](https://github.com/robotconscience) 
 * [`Emmanuel Geoffray`](https://github.com/emmanuelgeoffray)  
+* [`Jason McDermott`](https://github.com/jasonmcdermott)
 * [`Maria Paula Saba dos Reis`](https://github.com/mariapaulasaba)  
 * [`Matthias Esterl`](https://github.com/madc)   
 * [`Tecné Collective`](https://github.com/tecnecollective)

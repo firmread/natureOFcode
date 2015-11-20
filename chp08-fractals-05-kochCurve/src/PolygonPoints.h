@@ -9,8 +9,8 @@ class PolygonPoints {
 public:
 
     PolygonPoints() {};
-    PolygonPoints(int sidesInit, ofVec2f centInit,float sideLengthInit);
-    vector<ofVec2f> getPoints();
+    PolygonPoints(int sidesInit, ofPoint centInit,float sideLengthInit);
+    vector<ofPoint> getPoints();
     float getDistCentToPoint();
     void display(bool showLines, bool showPoints);
 
@@ -19,8 +19,8 @@ private:
     float distCentToPoint;
     int sides;
     float sideLength;
-    ofVec2f center;
-    vector<ofVec2f> points;
+    ofPoint center;
+    vector<ofPoint> points;
 
 };
 

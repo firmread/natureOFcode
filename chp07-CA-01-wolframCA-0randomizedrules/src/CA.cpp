@@ -1,11 +1,3 @@
-//
-//  CA.cpp
-//  Exercise_7_01_WolframCA_randomizedrules
-//
-//  Created by Firm Read on 3/13/14.
-//
-//
-
 #include "CA.h"
 CA::CA(){
     w=5;
@@ -64,7 +56,7 @@ void CA::display(){
     for (int i =0; i<cells.size(); i++) {
         if (cells[i] == 1) ofSetColor(0);
         else               ofSetColor(255);
-        ofRect(i*w, generation*w, w, w);
+        ofDrawRectangle(i*w, generation*w, w, w);
     }
 }
 
@@ -93,9 +85,6 @@ int CA::rules (int a, int b, int c) {
 }
 
 
-
-
-
 // The CA is done if it reaches the bottom of the screen
 bool CA::finished() {
 //    if (generation > ofGetHeight()/w) {
@@ -106,10 +95,6 @@ bool CA::finished() {
         return false;
     }
 }
-
-
-
-
 
 
 

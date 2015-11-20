@@ -14,10 +14,10 @@ Perceptron::Perceptron(int n, float _learnConst)
 
 }
 
-ofVec2f Perceptron::feedforward(vector<ofVec2f> forces)
+ofPoint Perceptron::feedforward(vector<ofPoint> forces)
 {
     std::cout << "weight count: " << weights.size() << " learn const: " << learnConst << std::endl;
-    ofVec2f sum = ofVec2f(0,0);
+    ofPoint sum = ofPoint(0,0);
 
     for (int i = 0; i < weights.size(); i++)
     {
@@ -36,7 +36,7 @@ int Perceptron::activate(float sum)
 }
 
 //Train the network against known data.
-void Perceptron::train(vector<ofVec2f> forces, ofVec2f error)
+void Perceptron::train(vector<ofPoint> forces, ofPoint error)
 {
 
     for (int i = 0; i < weights.size(); i++)

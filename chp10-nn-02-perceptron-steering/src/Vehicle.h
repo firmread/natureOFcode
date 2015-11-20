@@ -10,8 +10,8 @@ class Vehicle {
 public:
 
     void update();
-    void applyForce(ofVec2f force);
-    ofVec2f seek(ofVec2f target);
+    void applyForce(ofPoint force);
+    ofPoint seek(ofPoint target);
     void steer(vector<Target> targets);
     void display();
     Vehicle() {}
@@ -21,9 +21,9 @@ private:
 
     Perceptron brain;
 
-    ofVec2f location;
-    ofVec2f velocity;
-    ofVec2f acceleration;
+    ofPoint location;
+    ofPoint velocity;
+    ofPoint acceleration;
 
     float r;
     float maxforce;

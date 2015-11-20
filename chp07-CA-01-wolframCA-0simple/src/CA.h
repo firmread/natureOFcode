@@ -1,15 +1,4 @@
-//
-//  CA.h
-//  Exercise_7_01_WolframCA_randomizedrules
-//
-//  Created by Firm Read on 3/13/14.
-//
-//
-
-#ifndef __Exercise_7_01_WolframCA_randomizedrules__CA__
-#define __Exercise_7_01_WolframCA_randomizedrules__CA__
-
-#include <iostream>
+#pragma once
 #include "ofMain.h"
 
 
@@ -33,6 +22,3 @@ public:
     int ruleset[8] = {0,1,0,1,1,0,1,0};
     int w;
 };
-
-
-#endif /* defined(__Exercise_7_01_WolframCA_randomizedrules__CA__) */

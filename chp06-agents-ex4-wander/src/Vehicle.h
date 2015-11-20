@@ -8,20 +8,20 @@ class Vehicle {
 public:
 
     void update();
-    void wander(ofVec2f);
-    void applyForce(ofVec2f force);
-    void seek(ofVec2f target);
-    void arrive(ofVec2f target);
+    void wander(ofPoint);
+    void applyForce(ofPoint force);
+    void seek(ofPoint target);
+    void arrive(ofPoint target);
     void display();
     Vehicle() {}
     Vehicle(float x, float y);
 
 private:
 
-    ofVec2f location;
-    ofVec2f velocity;
-    ofVec2f acceleration;
-    ofVec2f targetRelative;
+    ofPoint location;
+    ofPoint velocity;
+    ofPoint acceleration;
+    ofPoint targetRelative;
 
     float r;
     float maxforce;

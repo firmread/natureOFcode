@@ -21,7 +21,7 @@ DNA DNA::crossover(DNA partner){
     return child;
 }
 
-void DNA::addGene(ofVec2f gene){
+void DNA::addGene(ofPoint gene){
     genes.push_back(gene);
 }
 
@@ -35,8 +35,8 @@ void DNA::mutate(float mutationRate) {
     }
 }
 
-ofVec2f DNA::randomDirection() {
+ofPoint DNA::randomDirection() {
     double pi = 3.1415926535897;
     float angleRads = ofRandom(2.0 * pi);
-    return ofVec2f(cos(angleRads),sin(angleRads));
+    return ofPoint(cos(angleRads),sin(angleRads));
 }

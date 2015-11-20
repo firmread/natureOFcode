@@ -33,17 +33,20 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    // Draw the CA
-    ca.display();
-    ca.generate();
     
-    // If we're done, clear the screen, pick a new ruleset and restart
-    if (ca.finished()) {
-        delay++;
-        if (delay > 30) {
-            ca.randomize();
-            ca.restart();
-            delay = 0;
+    if (ofGetFrameNum() > 2){
+        // Draw the CA
+        ca.display();
+        ca.generate();
+        
+        // If we're done, clear the screen, pick a new ruleset and restart
+        if (ca.finished()) {
+            delay++;
+            if (delay > 30) {
+                ca.randomize();
+                ca.restart();
+                delay = 0;
+            }
         }
     }
 }

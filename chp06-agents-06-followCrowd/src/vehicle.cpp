@@ -1,86 +1,60 @@
-//
-//  Vehicle.cpp
-//  NOC_6_1_Seek_trail
-//
-//  Created by Maria Paula Saba on 3/17/13.
-//
-//
-
-#include "Vehicle.h"
-
-
-void Vehicle::setup(ofVec2f & l, float ts, float mf){
-    
+#include "vehicle.h"
+void vehicle::setup(ofPoint & l, float ts, float mf){
     r = 8;
     maxForce = mf;
-    topSpeed =ts;
+    maxSpeed =ts;
     
     acceleration.set(0, 0);
     velocity.set(ts, 0.0);
     location = l;
     
     debug = false;
-    
 }
 
-
-
-
-void Vehicle::applyForce(const ofVec2f & force){
-    ofVec2f f(force);
+void vehicle::applyForce(const ofPoint & force){
+    ofPoint f(force);
     acceleration += f;
 }
 
-
-
-ofVec2f Vehicle::separate(vector<Vehicle> vehicles){
+ofPoint vehicle::separate(vector<vehicle> vehicles){
     float desiredseparation = r*2;
     
-    ofVec3f sum(0,0,0);
+    ofPoint sum(0,0,0);
     int count = 0;
     
-    vector<Vehicle>::iterator other;
+    vector<vehicle>::iterator other;
     for (other = vehicles.begin(); other < vehicles.end(); other++){
         
         float d = (location - other->getLocation()).length();
         
         if((d>0) && (d < desiredseparation)){
-            
-            ofVec2f diff = location - other->getLocation();
+            ofPoint diff = location - other->getLocation();
             diff.normalize();
             diff /= d;
             sum+= diff;
             count ++;
-            
         }
     }
     
     if(count > 0){
-        
         sum/=((float)count);
-        
-        
     }
     
     if(sum.length() > 0){
-        
         sum.normalize();
-        sum*=topSpeed;
+        sum*=maxSpeed;
         
         sum -= velocity;
         sum.limit(maxForce);
     }
-    return sum;
     
-
+    return sum;
 }
 
-
-void Vehicle::applyBehaviours(vector<Vehicle> vehicles, Path & path){
+void vehicle::applyBehaviours(vector<vehicle> vehicles, path & p){
     
-    ofVec2f separateForce = separate(vehicles);
-    ofVec2f followForce = follow(path);
-    
+    ofPoint separateForce = separate(vehicles);
+    ofPoint followForce = follow(p);
     
     followForce*=3;
     separateForce *= 1;
@@ -89,41 +63,34 @@ void Vehicle::applyBehaviours(vector<Vehicle> vehicles, Path & path){
     applyForce(followForce);
 }
 
-
-
-ofVec2f Vehicle::follow(Path & p){
+ofPoint vehicle::follow(path & p){
     radius = p.radius;
     
     // Predict location 25 (arbitrary choice) frames ahead
-    ofVec2f predict(velocity);
+    ofPoint predict(velocity);
     predict.normalize();
     predict *= 25;
     
     predictLoc = location + predict;
 
-   
     worldRecord = 1000000;
     
     // Loop through all points of the path
     for (unsigned int i = 0; i < p.points.size()-1; i++) {
         
         // Look at a line segment
-        ofVec2f a(p.points[i]);
-        ofVec2f b(p.points[i+1]);
+        ofPoint a(p.points[i]);
+        ofPoint b(p.points[i+1]);
         
         // Get the normal point to that line
-        ofVec2f normalPoint = getNormalPoint(predictLoc, a, b);
-        
+        ofPoint normalPoint = getNormalPoint(predictLoc, a, b);
         
         if (normalPoint.x <= a.x || normalPoint.x >= b.x) {
             
             // This is something of a hacky solution, but if it's not within the line segment
             // consider the normal to just be the end of the line segment (point b)
-            
             normalPoint.set(b.x, b.y);
         }
-        
-            
             
             // How far away are we from the path?
         float distance = ofDist(predictLoc.x, predictLoc.y, normalPoint.x, normalPoint.y);
@@ -133,7 +100,7 @@ ofVec2f Vehicle::follow(Path & p){
        
                 normal = normalPoint;
                 
-                ofVec2f dir = b - a;
+                ofPoint dir = b - a;
                 dir.normalize();
                 dir *= 10;  // This could be based on velocity instead of just an arbitrary 10 pixels
                 target.set(normalPoint);
@@ -142,86 +109,57 @@ ofVec2f Vehicle::follow(Path & p){
     }
 
     if (worldRecord > p.radius) {
-        
         return seek(target);
     }
-    
-    return ofVec2f(0,0);
-    
-   
-
-   
-    
-
+    return ofPoint(0,0);
 }
 
-
-ofVec2f Vehicle::getNormalPoint(ofVec2f p, ofVec2f a, ofVec2f b){
-    ofVec2f ap = p-a;
-    ofVec2f ab = b-a;
+ofPoint vehicle::getNormalPoint(ofPoint p, ofPoint a, ofPoint b){
+    ofPoint ap = p-a;
+    ofPoint ab = b-a;
     
     ab.normalize();
     ab*=ap.dot(ab);
-    ofVec2f normalPoint = a + ab;
+    ofPoint normalPoint = a + ab;
     return normalPoint;
-
-
 }
 
-
-ofVec2f Vehicle::seek(const ofVec2f & target){
-    ofVec2f desired;
+ofPoint vehicle::seek(const ofPoint & target){
+    ofPoint desired;
     desired = target - location;
     
     if(desired.length() == 0) return;
     
-    
     desired.normalize();
-    desired*=topSpeed;
+    desired*=maxSpeed;
     
-    ofVec2f steer;
+    ofPoint steer;
     steer = desired - velocity;
     steer.limit(maxForce);
     
     return steer;
-    
 }
 
-void Vehicle::update(){
+void vehicle::update(){
     velocity += acceleration;
     location += velocity;
-    velocity.limit(topSpeed);
+    velocity.limit(maxSpeed);
     acceleration *= 0;
-    
-    
 }
 
-void Vehicle::draw(){
-    
+void vehicle::draw(){
     ofPushMatrix();
-    
-    ofSetColor(175);
-    ofFill();
-    ofTranslate(location.x, location.y);
-    //ofRotate(angle);
-    ofEllipse(0, 0, r, r);
-    
-    ofSetColor(0);
-    ofNoFill();
-    ofEllipse(0, 0, r, r);
-    
-    
+        ofSetColor(0,127);
+        ofTranslate(location.x, location.y);
+        //ofRotate(angle);
+        ofDrawCircle(0, 0, r);
     ofPopMatrix();
-
-    
 }
 
-
-void Vehicle::borders(){
-
+void vehicle::borders(){
     if (location.x < -r) location.x = ofGetWidth()+r;
-    //if (location.y < -r) location.y = height+r;
+    if (location.y < -r) location.y = ofGetHeight()+r;
     if (location.x > ofGetWidth()+r) location.x = -r;
-    //if (location.y > height+r) location.y = -r;
+    if (location.y > ofGetHeight()+r) location.y = -r;
 }
 

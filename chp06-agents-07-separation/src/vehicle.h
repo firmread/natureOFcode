@@ -2,26 +2,26 @@
 
 #include "ofMain.h"
 
-class Vehicle{
+class vehicle{
 
 public:
-    ofVec2f location;
+    ofPoint location;
   
     void setup(int x, int y);
-    void applyForce(const ofVec2f & force);
-    void separate(vector<Vehicle> vehicles);    
+    void applyForce(const ofPoint & force);
+    void separate(vector<vehicle> vehicles);    
     void borders();
     void update();
     void draw();
 
-    const ofVec2f& getLocation() const {
+    const ofPoint& getLocation() const {
         return location;
     }
     
 private:
     
-    ofVec2f velocity;
-    ofVec2f acceleration;
+    ofPoint velocity;
+    ofPoint acceleration;
 
     float topSpeed;
     float maxForce; 

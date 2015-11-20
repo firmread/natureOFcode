@@ -3,26 +3,26 @@
 Rocket::Rocket(float lifetime)
 {
     dna = DNA(lifetime);
-    location = ofVec2f(ofGetWidth()/2,ofGetHeight());
-    velocity = ofVec2f(0,0);
-    acceleration = ofVec2f(0,0);
+    location = ofPoint(ofGetWidth()/2,ofGetHeight());
+    velocity = ofPoint(0,0);
+    acceleration = ofPoint(0,0);
 }
 
 Rocket::Rocket()
 {
-    location = ofVec2f(ofGetWidth()/2,ofGetHeight());
-    velocity = ofVec2f(0,0);
-    acceleration = ofVec2f(0,0);
+    location = ofPoint(ofGetWidth()/2,ofGetHeight());
+    velocity = ofPoint(0,0);
+    acceleration = ofPoint(0,0);
 }
 
-void Rocket::applyForce(ofVec2f f)
+void Rocket::applyForce(ofPoint f)
 {
     acceleration += f;
 }
 
 void Rocket::display()
 {
-    float theta = velocity.angle(ofVec2f(0,1));
+    float theta = velocity.angle(ofPoint(0,1));
     ofFill();
     ofPushMatrix();
     ofTranslate(location.x,location.y);
@@ -69,7 +69,7 @@ void Rocket::run()
     checkObstacles();
     if(location.distance(target) > 10 && !stopped)
     {
-        vector<ofVec2f> genes = dna.getGenes();
+        vector<ofPoint> genes = dna.getGenes();
         // Apply a force from the genes array.
         applyForce(genes[geneCounter]);
         // Go to the next force in the genes array.

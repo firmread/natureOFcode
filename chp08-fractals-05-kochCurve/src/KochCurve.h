@@ -9,7 +9,7 @@ class KochCurve {
 public:
 
     KochCurve(){};
-    KochCurve(ofVec2f a, ofVec2f b,int iterations);
+    KochCurve(ofPoint a, ofPoint b,int iterations);
     void display();
     void generateLines();
 
@@ -21,19 +21,19 @@ private:
         public:
 
         KochLine() {};
-        KochLine(ofVec2f a, ofVec2f b);
+        KochLine(ofPoint a, ofPoint b);
         void display();
 
-        ofVec2f kochA();
-        ofVec2f kochB();
-        ofVec2f kochC();
-        ofVec2f kochD();
-        ofVec2f kochE();
+        ofPoint kochA();
+        ofPoint kochB();
+        ofPoint kochC();
+        ofPoint kochD();
+        ofPoint kochE();
 
         private:
 
-        ofVec2f startPt;
-        ofVec2f endPt;
+        ofPoint startPt;
+        ofPoint endPt;
 
     };
     std::vector<KochLine> lines;

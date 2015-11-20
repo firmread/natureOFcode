@@ -1,12 +1,11 @@
 #pragma once
 #include "ofMain.h"
-#include "Boid.h"
+#include "boid.h"
 
-
-class Flock{
+class flocking{
 
 private:
-    vector<Boid*> boids;
+    vector<boid> boids;
  
 public:
     void setup();

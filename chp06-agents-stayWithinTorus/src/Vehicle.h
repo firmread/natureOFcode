@@ -13,7 +13,7 @@
 class Vehicle {
 public:
 
-    ofVec3f acceleration, velocity, location, futureLocation;
+    ofPoint acceleration, velocity, location, futureLocation;
     float maxspeed, maxforce, r;
     
     Vehicle(){
@@ -47,18 +47,18 @@ public:
     }
     
     
-    void outerBoundaries(ofVec3f circleLocation, float circleRadiusOuter) {
+    void outerBoundaries(ofPoint circleLocation, float circleRadiusOuter) {
         
-        ofVec3f desired;
+        ofPoint desired;
         
         // Predict location 5 (arbitrary choice) frames ahead
-        ofVec3f predict(velocity);
+        ofPoint predict(velocity);
         predict *= 25;
-        ofVec3f futureLocation(location);
+        ofPoint futureLocation(location);
         
         futureLocation += predict;
         
-        ofVec3f distFromCircleCentre(circleLocation);
+        ofPoint distFromCircleCentre(circleLocation);
         
         distFromCircleCentre -= futureLocation;
         
@@ -66,7 +66,7 @@ public:
         
         if (distance > circleRadiusOuter * 0.6) {
             
-            ofVec3f toCenter(circleLocation);
+            ofPoint toCenter(circleLocation);
             toCenter -= location;
             toCenter.normalize();
             toCenter *= velocity.length();
@@ -78,7 +78,7 @@ public:
         }
         
         if (desired.length() != 0) {
-            ofVec3f steer(desired);
+            ofPoint steer(desired);
             steer -= velocity;
             //            PVector steer = PVector.sub(desired, velocity);
             steer.limit(maxforce);
@@ -88,18 +88,18 @@ public:
         
     }
     
-    void innerBoundaries(ofVec3f circleLocation, float circleRadiusInner) {
+    void innerBoundaries(ofPoint circleLocation, float circleRadiusInner) {
         
-        ofVec3f desired;
+        ofPoint desired;
         
         // Predict location 5 (arbitrary choice) frames ahead
-        ofVec3f predict(velocity);
+        ofPoint predict(velocity);
         predict *= 25;
         futureLocation.set(location);
         
         futureLocation += predict;
         
-        ofVec3f distFromCircleCentre(circleLocation);
+        ofPoint distFromCircleCentre(circleLocation);
         
         distFromCircleCentre -= futureLocation;
         
@@ -107,7 +107,7 @@ public:
         
         if (distance < circleRadiusInner * 0.6) {
             
-            ofVec3f toCenter(circleLocation);
+            ofPoint toCenter(circleLocation);
             toCenter += location;
             toCenter.normalize();
             toCenter *= velocity.length();
@@ -119,7 +119,7 @@ public:
         }
         
         if (desired.length() != 0) {
-            ofVec3f steer(desired);
+            ofPoint steer(desired);
             steer -= velocity;
             //            PVector steer = PVector.sub(desired, velocity);
             steer.limit(maxforce);
@@ -128,7 +128,7 @@ public:
         
     }
     
-    void applyForce(ofVec3f force) {
+    void applyForce(ofPoint force) {
         // We could add mass here if we want A = F / M
         acceleration += force;
     }
@@ -138,8 +138,8 @@ public:
 //        float theta = velocity.angle() + radians(90);
         
         
-//        ofVec3f v1(location);
-//        ofVec3f v2(velocity);
+//        ofPoint v1(location);
+//        ofPoint v2(velocity);
 //        float theta = v1.angle(v2) + 90 + r*10;
         
         

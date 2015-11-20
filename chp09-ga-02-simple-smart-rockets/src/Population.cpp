@@ -3,10 +3,10 @@
 
 Population::Population()
 {
-    Obstacle obst = Obstacle(ofVec2f(ofGetWidth()/3,ofGetHeight()/2),ofVec2f(ofGetWidth()/3,15));
+    Obstacle obst = Obstacle(ofPoint(ofGetWidth()/3,ofGetHeight()/2),ofPoint(ofGetWidth()/3,15));
     obstacles.push_back(obst);
 
-    target = ofVec2f(ofGetWidth()/2,50);
+    target = ofPoint(ofGetWidth()/2,50);
     for (int i = 0; i < popSize; i++)
     {
         population[i] = Rocket(lifetime);

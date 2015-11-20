@@ -8,13 +8,13 @@ class Obstacle {
 public:
 
     Obstacle() {};
-    Obstacle(ofVec2f _location,ofVec2f _dimensions);
+    Obstacle(ofPoint _location,ofPoint _dimensions);
     void display();
-    bool contains(ofVec2f v);
+    bool contains(ofPoint v);
 
 private:
-    ofVec2f location;
-    ofVec2f dimensions;
+    ofPoint location;
+    ofPoint dimensions;
 
 };
 

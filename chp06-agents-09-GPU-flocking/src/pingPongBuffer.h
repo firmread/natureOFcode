@@ -1,8 +1,7 @@
 // Ping-pong buffer from openFrameworks shader particle example
 
 #pragma once
-
-struct pingPongBuffer {
+class pingPongBuffer {
     public:
     void allocate( int _width, int _height, int _internalformat = GL_RGBA, float _dissipation = 1.0f){
         // Allocate

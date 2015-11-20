@@ -13,11 +13,11 @@ public:
     Rocket(float lifetime);
     void display();
     void update();
-    void applyForce(ofVec2f);
+    void applyForce(ofPoint);
     float calcFitness();
     float getFitness() { return fitness; };
-    void setTarget(ofVec2f t) { target = t; };
-    ofVec2f getTarget() { return target; };
+    void setTarget(ofPoint t) { target = t; };
+    ofPoint getTarget() { return target; };
     void run();
     Rocket mate(Rocket partner);
     void checkObstacles();
@@ -26,11 +26,11 @@ private:
     float r = 12.0;
     int geneCounter = 0;
     DNA dna;
-    ofVec2f target;
+    ofPoint target;
     float fitness;
-    ofVec2f location;
-    ofVec2f velocity;
-    ofVec2f acceleration;
+    ofPoint location;
+    ofPoint velocity;
+    ofPoint acceleration;
     vector<Obstacle> obstacles;
     bool stopped = false;
 

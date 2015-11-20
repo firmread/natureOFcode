@@ -4,14 +4,14 @@
 void ofApp::setup(){
     ofBackground(255);
     ofSetBackgroundAuto(true);
-    ofVec2f st = ofVec2f(ofGetWidth() / 3,ofGetHeight()/3);
-    ofVec2f ed = ofVec2f(2 * ofGetWidth() / 3,ofGetHeight()/3);
+    ofPoint st = ofPoint(ofGetWidth() / 3,ofGetHeight()/3);
+    ofPoint ed = ofPoint(2 * ofGetWidth() / 3,ofGetHeight()/3);
     // kc = KochCurve(st,ed,5);
 
-    pp = PolygonPoints(6,ofVec2f(ofGetWidth() / 2 ,ofGetHeight()/2),300.0);
-    pp2 = PolygonPoints(3,ofVec2f(ofGetWidth() / 2,ofGetHeight()/2),420);
+    pp = PolygonPoints(6,ofPoint(ofGetWidth() / 2 ,ofGetHeight()/2),300.0);
+    pp2 = PolygonPoints(3,ofPoint(ofGetWidth() / 2,ofGetHeight()/2),420);
 
-    vector<ofVec2f> hexPoints = pp.getPoints();
+    vector<ofPoint> hexPoints = pp.getPoints();
     for(int i= 0; i < hexPoints.size(); i++){
         int nextPointPos = (i<hexPoints.size()-1)?i+1:0;
         kc.push_back(KochCurve(hexPoints[i],hexPoints[nextPointPos],5));

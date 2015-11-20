@@ -9,7 +9,7 @@ class Tree
 
 private:
 
-    ofVec2f startPoint;
+    ofPoint startPoint;
     float maxLength;
     float minLength;
     float angle;
@@ -22,13 +22,13 @@ private:
     public:
 
         Branch() {};
-        Branch(float _length,ofVec2f _endPoint, Tree* t, int parentPos);
-        ofVec2f getEndPoint();
-        ofVec2f endPoint;
-        //ofVec2f getParentEndPoint();
+        Branch(float _length,ofPoint _endPoint, Tree* t, int parentPos);
+        ofPoint getEndPoint();
+        ofPoint endPoint;
+        //ofPoint getParentEndPoint();
         Branch getParent();
         int getParentPosition() { return parentPos; };
-        void nextBranch(Tree* t,ofVec2f previousDirection,float nextLength, float ang, int parentPosition);
+        void nextBranch(Tree* t,ofPoint previousDirection,float nextLength, float ang, int parentPosition);
 
         // Branch * parent;
         int parentPos;
@@ -42,7 +42,7 @@ private:
 public:
 
     Tree() {};
-    Tree(float len, float ang, ofVec2f startPoint);
+    Tree(float len, float ang, ofPoint startPoint);
     void display();
 
     vector<Branch> branches;

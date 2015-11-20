@@ -9,7 +9,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-   ofVec2f mousePos = ofVec2f(mouseX,mouseY);
+   ofPoint mousePos = ofPoint(mouseX,mouseY);
    vehicle.wander(mousePos);
    vehicle.update();
 }

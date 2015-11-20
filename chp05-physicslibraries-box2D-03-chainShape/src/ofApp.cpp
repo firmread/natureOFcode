@@ -16,8 +16,8 @@ void ofApp::setup() {
     surface.setPhysics(0.0, 0.5, 0.5);
     surface.create(box2d.getWorld());
     
-    surface.mesh.addVertex(ofVec3f(ofGetWidth(), 0));
-    surface.mesh.addVertex(ofVec3f(0,0));
+    surface.mesh.addVertex(ofPoint(ofGetWidth(), 0));
+    surface.mesh.addVertex(ofPoint(0,0));
     
 }
 

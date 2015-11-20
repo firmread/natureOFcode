@@ -15,7 +15,7 @@ private:
     float weight;
 
     bool sending = false;
-    ofVec2f sender;
+    ofPoint sender;
     float output;
 
 public:

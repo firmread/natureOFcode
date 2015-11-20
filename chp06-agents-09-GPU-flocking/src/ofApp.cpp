@@ -83,8 +83,8 @@ void ofApp::setup(){
     
     for(int x = 0; x < textureRes; x++){
         for(int y = 0; y < textureRes; y++){
-            mesh.addVertex(ofVec3f(x,y));
-            mesh.addTexCoord(ofVec2f(x, y));
+            mesh.addVertex(ofPoint(x,y));
+            mesh.addTexCoord(ofPoint(x, y));
             
             mesh.addColor(color);
         }
@@ -168,7 +168,6 @@ void ofApp::update(){
     ofPopMatrix();
     renderFBO.end();
 }
-
 //--------------------------------------------------------------
 void ofApp::draw(){
     renderFBO.draw(0,0);
@@ -182,7 +181,6 @@ void ofApp::draw(){
     
     ofDrawBitmapString(toPrint, 20, 20);
 }
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if ( key == '='){
@@ -194,30 +192,22 @@ void ofApp::keyPressed(int key){
         bTrails = !bTrails;
     }
 }
-
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){}
-
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    maxVelocity = (float) x/ofGetWidth();
-    maxForce = (float) y / ofGetHeight();
+    maxVelocity = ofMap(x, 0, ofGetWidth(), 0, 0.1);
+    maxForce = ofMap(y, 0, ofGetHeight(), 0, 0.1);
 }
-
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){}
-
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){}
-
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){}
-
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){}
-
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){}
-
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){}

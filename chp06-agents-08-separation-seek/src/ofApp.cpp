@@ -2,85 +2,50 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetVerticalSync(true);
-    ofSetWindowShape(800, 300);
     ofEnableSmoothing();
     ofBackground(255);
     
     vehicles.resize(100);
     
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-      
-        ofVec2f location(ofGetWidth(), ofGetHeight());
-        
-        vehicles[i].setup(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-   
+    for (auto & v : vehicles){
+        ofPoint location(ofGetWidth(), ofGetHeight());
+        v.setup(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
     }
 
 }
-
 //--------------------------------------------------------------
 void ofApp::update(){
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-        vehicles[i].applyBehaviours(vehicles);
-        vehicles[i].borders();
-        vehicles[i].update();
+    for (auto & v : vehicles){
+        v.applyBehaviours(vehicles);
+        v.borders();
+        v.update();
     }
 }
-
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-        vehicles[i].draw();
+    for (auto & v : vehicles){
+        v.draw();
     }
-    cout << ofGetFrameRate() << endl;
 }
-
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-   
-}
-
+void ofApp::keyPressed(int key){ }
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
+void ofApp::keyReleased(int key){ }
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
+void ofApp::mouseMoved(int x, int y ){ }
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
- 
-    Vehicle v;
+    vehicle v;
     v.setup(mouseX, mouseY);
     vehicles.push_back(v);
 }
-
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
+void ofApp::mousePressed(int x, int y, int button){ }
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
+void ofApp::mouseReleased(int x, int y, int button){ }
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
+void ofApp::windowResized(int w, int h){ }
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
+void ofApp::gotMessage(ofMessage msg){ }
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
+void ofApp::dragEvent(ofDragInfo dragInfo){ }

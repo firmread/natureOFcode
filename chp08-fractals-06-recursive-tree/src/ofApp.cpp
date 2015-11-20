@@ -4,13 +4,13 @@
 void ofApp::setup(){
     ofBackground(255);
     ofSetBackgroundAuto(true);
-    ofVec2f startPoint = ofVec2f(ofGetWidth()/2,ofGetHeight()/2);
+    ofPoint startPoint = ofPoint(ofGetWidth()/2,ofGetHeight()/2);
     tree = Tree(100.0,175.0,startPoint);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    ofVec2f startPoint = ofVec2f(ofGetWidth()/2,2 * ofGetHeight()/3);
+    ofPoint startPoint = ofPoint(ofGetWidth()/2,2 * ofGetHeight()/3);
     tree = Tree(90,ofMap(sin(ofGetFrameNum() * 0.001),-1,1,0,360),startPoint);
 }
 

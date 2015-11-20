@@ -2,15 +2,15 @@
 #include "ofApp.h"
 
 Vehicle::Vehicle(float x,float y){
-    acceleration = ofVec2f(0,0);
-    velocity = ofVec2f(0,0);
-    location = ofVec2f(x,y);
+    acceleration = ofPoint(0,0);
+    velocity = ofPoint(0,0);
+    location = ofPoint(x,y);
     r = 12.0;
     targetDistance = r * 10;
     targetRadius = r * 4;
     currentTargetAngle = 45;        // current angle we're heading towards, calculated each frame
     alphaTargetAngle = 12.0;        // maximum change in angle each frame (in + and - direction, so max change actually double this)
-    targetRelative = ofVec2f(0,0);  // similar to 'desired' vector in other examples, position of target relative to vehicle
+    targetRelative = ofPoint(0,0);  // similar to 'desired' vector in other examples, position of target relative to vehicle
     maxspeed = 5.0;
     maxforce = 0.02;
     arriveRadius = 300.0;           // used in previous example
@@ -26,23 +26,23 @@ void Vehicle::update(){
 
 }
 
-void Vehicle::applyForce(ofVec2f force) {
+void Vehicle::applyForce(ofPoint force) {
     acceleration += force;
 }
 
-void Vehicle::seek(ofVec2f target) {
-    ofVec2f desired = target - location;
+void Vehicle::seek(ofPoint target) {
+    ofPoint desired = target - location;
     desired.normalize();
     desired *= maxspeed;
-    ofVec2f steer = desired - velocity;
+    ofPoint steer = desired - velocity;
     steer.limit(maxforce);
     applyForce(steer);
   }
 
 
 
-void Vehicle::arrive(ofVec2f target) {
-    ofVec2f desired = target - location;
+void Vehicle::arrive(ofPoint target) {
+    ofPoint desired = target - location;
     float d = desired.length();
     desired.normalize();
     if (d < arriveRadius) {
@@ -51,12 +51,12 @@ void Vehicle::arrive(ofVec2f target) {
     } else {
       desired *= maxspeed;
     }
-    ofVec2f steer = desired - velocity;
+    ofPoint steer = desired - velocity;
     steer.limit(maxforce);
     applyForce(steer);
   }
 
-void Vehicle::wander(ofVec2f mousePos){
+void Vehicle::wander(ofPoint mousePos){
 
      // These two lines introduce a slight modification to Daniel Shiffman's example, to alter the radius and
      // distance of the target zone depending on mouse position
@@ -69,13 +69,13 @@ void Vehicle::wander(ofVec2f mousePos){
      float xTarget = targetRadius * cos(ofDegToRad(currentTargetAngle));
      float yTarget = targetRadius * sin(ofDegToRad(currentTargetAngle));
 
-     targetRelative = ofVec2f(xTarget,yTarget + targetDistance);
+     targetRelative = ofPoint(xTarget,yTarget + targetDistance);
 
-     ofVec2f desired = targetRelative;
+     ofPoint desired = targetRelative;
 
      desired.normalize();
      desired *= maxspeed;
-     ofVec2f steer = desired - velocity;
+     ofPoint steer = desired - velocity;
      steer.limit(maxforce);
      applyForce(steer);
 
@@ -94,7 +94,7 @@ void Vehicle::wander(ofVec2f mousePos){
 }
 
 void Vehicle::display() {
-    float theta = velocity.angle(ofVec2f(0,1));
+    float theta = velocity.angle(ofPoint(0,1));
     ofFill();
     ofPushMatrix();
      ofTranslate(location.x,location.y);
