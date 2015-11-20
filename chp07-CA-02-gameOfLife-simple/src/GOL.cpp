@@ -71,11 +71,11 @@ void GOL::display(){
             else{
                 ofSetColor(255);
             }
-            ofRect(i*w, j*w, w, w);
+            ofDrawRectangle(i*w, j*w, w, w);
             
             ofNoFill();
             ofSetColor(0);
-            ofRect(i*w, j*w, w, w);
+            ofDrawRectangle(i*w, j*w, w, w);
         }
     }
 }

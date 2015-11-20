@@ -1,11 +1,3 @@
-//
-//  Cell.cpp
-//  NOC_7_03_GameOfLifeOOP
-//
-//  Created by Matthias Esterl on 7/5/13.
-//
-//
-
 #include "GOLCell.h"
 
 GOLCell::GOLCell(float x_, float y_, float w_) {
@@ -41,9 +33,9 @@ void GOLCell::display() {
         ofSetColor(255);
     }
 
-    ofRect(x, y, w, w);
+    ofDrawRectangle(x, y, w, w);
     
     ofNoFill();
     ofSetColor(0);
-    ofRect(x, y, w, w);
+    ofDrawRectangle(x, y, w, w);
 }

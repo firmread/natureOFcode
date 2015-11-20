@@ -1,10 +1,3 @@
-//
-//  GOL.cpp
-//  NOC_7_02_GameOfLifeSimple
-//
-//  Created by Matthias Esterl on 7/5/13.
-//
-//
 
 #include "GOL.h"
 

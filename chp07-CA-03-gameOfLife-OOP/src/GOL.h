@@ -1,28 +1,16 @@
-//
-//  GOL.h
-//  NOC_7_02_GameOfLifeSimple
-//
-//  Created by Matthias Esterl on 7/5/13.
-//
-//
-
-#ifndef __NOC_7_02_GameOfLifeSimple__GOL__
-#define __NOC_7_02_GameOfLifeSimple__GOL__
-
+#pragma once
 #include "ofMain.h"
 #include "GOLCell.h"
 
 class GOL{
-    public:
-        GOL();
-        void init();
-        void generate();
-        void display();
-    
-        int w ;
-        int columns;
-        int rows;
-        vector< vector<GOLCell*> > board;
-};
+public:
+    GOL();
+    void init();
+    void generate();
+    void display();
 
-#endif /* defined(__NOC_7_02_GameOfLifeSimple__GOL__) */
+    int w ;
+    int columns;
+    int rows;
+    vector< vector<GOLCell*> > board;
+};
