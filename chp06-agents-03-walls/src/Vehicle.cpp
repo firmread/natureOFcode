@@ -1,11 +1,3 @@
-//
-//  Vehicle.cpp
-//  NOC_6_1_Seek_trail
-//
-//  Created by Maria Paula Saba on 3/17/13.
-//
-//
-
 #include "Vehicle.h"
 
 
