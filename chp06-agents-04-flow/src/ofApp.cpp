@@ -2,40 +2,35 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetVerticalSync(true);
-    ofSetWindowShape(640, 360);
+    ofSetFrameRate(60);
     ofEnableSmoothing();
     ofBackground(255);
     
-    flowfield.setup(20);
-    vehicles.resize(250);
+    ff.setup(25);
     
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-      
-        ofVec2f location(ofGetWidth(), ofGetHeight());
-        
-        vehicles[i].setup(location, ofRandom(2,5), ofRandom(0.01,0.3));
-   
+    for (int i = 0; i < 100; i++){
+        ofPoint location(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        vehicles.push_back(new vehicle(location, ofRandom(2,5), ofRandom(0.01,0.3)));
     }
-
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-        vehicles[i].follow(flowfield);
-        vehicles[i].update();
-        vehicles[i].borders();
+    for (auto & v : vehicles){
+        v->follow(ff);
+        v->update();
+        v->borders();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    if (isDebugMode){
-        flowfield.draw();
+    for (auto & v : vehicles){
+        v->draw();
     }
-    for (unsigned int i = 0; i < vehicles.size(); i++){
-        vehicles[i].draw();
+    
+    if (isDebugMode){
+        ff.draw();
     }
   
 }
@@ -46,44 +41,21 @@ void ofApp::keyPressed(int key){
         isDebugMode = !isDebugMode;
     }
 }
-
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
+void ofApp::keyReleased(int key){ }
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
+void ofApp::mouseMoved(int x, int y ){ }
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
+void ofApp::mouseDragged(int x, int y, int button){ }
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    flowfield.init();
-
+    ff.init();
 }
-
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
+void ofApp::mouseReleased(int x, int y, int button){ }
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
+void ofApp::windowResized(int w, int h){ }
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
+void ofApp::gotMessage(ofMessage msg){ }
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
+void ofApp::dragEvent(ofDragInfo dragInfo){ }

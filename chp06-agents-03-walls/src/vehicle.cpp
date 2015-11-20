@@ -1,151 +1,117 @@
-#include "Vehicle.h"
+#include "vehicle.h"
 
-
-void Vehicle::setup(int x, int y){
-    
+void vehicle::setup(int x, int y){
     acceleration.set(0, 0);
     velocity.set(0.4, 0.6);
     location.set(x, y);
     
     r = 6;
     maxForce = 0.1;
-    topSpeed = 4;
+    maxSpeed = 4;
     d = 60;
-    
 
 }
 
-
-
-
-void Vehicle::applyForce(const ofVec2f & force){
-    ofVec2f f(force);
-    acceleration += f;
+void vehicle::applyForce(const ofPoint & force){
+    acceleration += force;
 }
 
 
-void Vehicle::boundaries(){
+void vehicle::boundaries(){
 
-    ofVec2f desired(0,0);
-    ofVec2f null(0,0);
-    
-    
-    
+    ofPoint desired(0,0);
+    ofPoint null(0,0);
     
     if (location.x < d) {
-        desired.set(topSpeed, velocity.y);
+        desired.set(maxSpeed, velocity.y);
     }
     else if (location.x > ofGetWidth() -d) {
-        desired.set(-topSpeed, velocity.y);
+        desired.set(-maxSpeed, velocity.y);
     }
     
     if (location.y < d) {
-        desired.set(velocity.x, topSpeed);
+        desired.set(velocity.x, maxSpeed);
     }
     else if (location.y > ofGetHeight()-d) {
-        desired.set(velocity.x, -topSpeed);
+        desired.set(velocity.x, -maxSpeed);
     }
     
     if (desired != null ) {
         desired.normalize();
-        desired*= topSpeed;
-        ofVec2f steer = desired - velocity;
+        desired*= maxSpeed;
+        ofPoint steer = desired - velocity;
         steer.limit(maxForce);
         applyForce(steer);
     }
 
-
     predict = velocity;
     predict.normalize();
     predict *= 60;
     
-    
     futureLocation = location + predict;
-
-
-
 }
 
-void Vehicle::circleBoundaries(float cR, ofVec2f cL){
+void vehicle::circleBoundaries(float cR, ofPoint cL){
 
     circleLocation = cL;
     radius = cR;
 
-    
-    ofVec2f desired(0,0);
-    ofVec2f null(0,0);
-    
+    ofPoint desired(0,0);
+    ofPoint null(0,0);
     
     predict = velocity;
     predict.normalize();
     predict *= 60;
     
-    
     futureLocation = location + predict;
     
-    
     float distance = ofDist(futureLocation.x, futureLocation.y, circleLocation.x, circleLocation.y);
- 
     
     if (distance > radius) {
-        ofVec2f toCenter = circleLocation - location;
+        ofPoint toCenter = circleLocation - location;
         toCenter.normalize();
         toCenter*= velocity.length();
         
         desired = velocity + toCenter;
         desired.normalize();
-        desired*= topSpeed;
+        desired*= maxSpeed;
     }
-    
     
     if (desired != null ) {
         desired.normalize();
-        desired*= topSpeed;
-        ofVec2f steer = desired - velocity;
+        desired*= maxSpeed;
+        ofPoint steer = desired - velocity;
         steer.limit(maxForce);
         applyForce(steer);
     }
     
-    
-
-    
-    
 }
 
-void Vehicle::seek(const ofVec2f & target){
-    ofVec2f desired;
-    desired = target - location;
+void vehicle::seek(const ofPoint & target){
+    ofPoint desired = target - location;
     
     desired.normalize();
-    desired*=topSpeed;
+    desired*=maxSpeed;
     
-    ofVec2f steer;
-    steer = desired - velocity;
+    ofPoint steer = desired - velocity;
     steer.limit(maxForce);
     
     applyForce(steer);
-    
-    
 }
 
-void Vehicle::arrive(const ofVec2f & target){
-    ofVec2f desired;
-    desired = target - location;
-    
+void vehicle::arrive(const ofPoint & target){
+    ofPoint desired = target - location;
     float d = desired.length();
     
     if (d < 100) {
-        float m = ofMap(d,0,100,0,topSpeed);
+        float m = ofMap(d,0,100,0,maxSpeed);
         desired*=m;
         
     } else {
-        desired*=topSpeed;
+        desired*=maxSpeed;
     }
 
-
-
-    ofVec2f steer;
-    steer = desired - velocity;
+    ofPoint steer = desired - velocity;
     steer.limit(maxForce);
     
     applyForce(steer);
@@ -153,50 +119,38 @@ void Vehicle::arrive(const ofVec2f & target){
 }
 
 
-void Vehicle::update(){
+void vehicle::update(){
     velocity += acceleration;
     location += velocity;
-    velocity.limit(topSpeed);
+    velocity.limit(maxSpeed);
     acceleration *= 0;
     
     history.push_back(location);
     if(history.size() > 100){
         history.erase(history.begin());
     }
-    
-    
 }
 
-void Vehicle::draw(){
+void vehicle::draw(){
     
     ofSetColor(0);
-    ofNoFill();
-    
-    ofBeginShape();
-    for(int i = 0; i < history.size(); i++){
-        ofVertex(history[i].x, history[i].y);
+    for(int i = 1; i < history.size(); i++){
+        ofDrawLine(history[i-1].x, history[i-1].y, history[i].x, history[i].y);
     }
-    ofEndShape();
     
     float angle = ofRadToDeg(atan2(velocity.y,velocity.x)) + 90;
-    ofFill();
     ofPushMatrix();
-    ofTranslate(location.x, location.y);
-    ofRotate(angle);
-    
-    ofBeginShape();
-    ofVertex(0, -r*2);
-    ofVertex(-r, r*2);
-    ofVertex(r, r*2);
-    ofEndShape();
+        ofTranslate(location.x, location.y);
+        ofRotate(angle);
+        ofBeginShape();
+            ofVertex(0, -r*2);
+            ofVertex(-r, r*2);
+            ofVertex(r, r*2);
+        ofEndShape();
     ofPopMatrix();
 
-    
     ofSetColor(255, 0, 0);
-    ofFill();
-    ofEllipse(futureLocation,4,4);
+    ofDrawCircle(futureLocation,4);
     
 }
-
-
 

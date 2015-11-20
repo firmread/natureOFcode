@@ -1,36 +1,27 @@
-//
-//  Vehicle.cpp
-//  NOC_6_1_Seek_trail
-//
-//  Created by Maria Paula Saba on 3/17/13.
-//
-//
+#include "vehicle.h"
 
-#include "Vehicle.h"
-
-
-void Vehicle::setup(ofVec2f & l, float ts, float mf){
+vehicle::vehicle(ofPoint & l, float ts, float mf){
     acceleration.set(0, 0);
     velocity.set(0.0, 0.0);
     location = l;
     
     r = 4;
     maxForce = mf;
-    topSpeed =ts;    
+    maxSpeed =ts;    
 
 }
 
 
 
 
-void Vehicle::applyForce(const ofVec2f & force){
-    ofVec2f f(force);
+void vehicle::applyForce(const ofPoint & force){
+    ofPoint f(force);
     acceleration += f;
 }
 
 
 
-void Vehicle::borders(){
+void vehicle::borders(){
 
     if (location.x < -r) location.x = ofGetWidth()+r;
     if (location.y < -r) location.y = ofGetHeight()+r;
@@ -40,14 +31,14 @@ void Vehicle::borders(){
 }
 
 
-void Vehicle::follow(const Flowfield & flow){
+void vehicle::follow(const flowField & flow){
 
     // What is the vector at that spot in the flow field?
-    ofVec2f desired = flow.lookup(location);
+    ofPoint desired = flow.lookup(location);
     // Scale it up by maxspeed
-    desired *= topSpeed;
+    desired *= maxSpeed;
     // Steering is desired minus velocity
-    ofVec2f steer = desired - velocity;
+    ofPoint steer = desired - velocity;
     steer.limit(maxForce);  // Limit to maximum steering force
     applyForce(steer);
 
@@ -57,31 +48,17 @@ void Vehicle::follow(const Flowfield & flow){
 
 
 
-void Vehicle::update(){
+void vehicle::update(){
     velocity += acceleration;
     location += velocity;
-    velocity.limit(topSpeed);
+    velocity.limit(maxSpeed);
     acceleration *= 0;
-    
-//    history.push_back(location);
-//    if(history.size() > 20){
-//        history.erase(history.begin());
-//    }
-    
     
 }
 
-void Vehicle::draw(){
+void vehicle::draw(){
     
     ofSetColor(175);
-    ofNoFill();
-    
-//    ofBeginShape();
-//    for(int i = 0; i < history.size(); i++){
-//        ofVertex(history[i].x, history[i].y);
-//    }
-//    ofEndShape();
-    
     float angle = ofRadToDeg(atan2(velocity.y,velocity.x)) + 90;
     ofFill();
     ofPushMatrix();

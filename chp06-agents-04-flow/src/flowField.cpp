@@ -1,16 +1,6 @@
-//
-//  Flowfield.cpp
-//  NOC_6_4_Flow
-//
-//  Created by Maria Paula Saba on 3/19/13.
-//
-//
+#include "flowField.h"
 
-#include "Flowfield.h"
-
-
-
-void Flowfield::setup(int r){
+void flowField::setup(int r){
     resolution = r;
     cols = ofGetWidth()/resolution;
     rows = ofGetHeight()/resolution;
@@ -23,7 +13,7 @@ void Flowfield::setup(int r){
 
 }
 
-void Flowfield::init(){
+void flowField::init(){
     // Reseed noise so we get a new flow field every time
     
     //processing: noiseSeed((int)random(10000));
@@ -44,12 +34,10 @@ void Flowfield::init(){
         }
         xoff += 0.03;
     }
-
-
 }
 
 
-void Flowfield::draw(){
+void flowField::draw(){
     for (int i = 0; i < cols; i++) {
         for (int j = 0; j < rows; j++) {
             drawVector(field[i][j],i*resolution,j*resolution,resolution-2);
@@ -58,10 +46,9 @@ void Flowfield::draw(){
 }
 
 
-void Flowfield::drawVector(const ofVec2f & v, float x, float y, float scayl){
+void flowField::drawVector(const ofPoint & v, float x, float y, float scayl){
     
-    ofSetColor(100);
-    ofNoFill();
+    ofSetColor(ofColor::dodgerBlue, 127);
     
     ofPushMatrix();
     float arrowsize = 4;
@@ -69,17 +56,17 @@ void Flowfield::drawVector(const ofVec2f & v, float x, float y, float scayl){
     ofTranslate(x,y);
     //stroke(0,100);
     // Call vector heading function to get direction (note that pointing up is a heading of 0) and rotate
-    ofRotate(ofVec2f(1,0).angle(v));
+    ofRotate(ofPoint(1,0).angle(v));
     // Calculate length of vector & scale it to be bigger or smaller if necessary
     float len = v.length()*scayl;
     // Draw three lines to make an arrow (draw pointing up since we've rotate to the proper direction)
-    ofLine(0,0,len,0);
-   // ofLine(len,0,len-arrowsize,+arrowsize/2);
-   // ofLine(len,0,len-arrowsize,-arrowsize/2);
+    ofDrawLine(0,0,len,0);
+    ofDrawLine(len,0,len-arrowsize,+arrowsize/2);
+    ofDrawLine(len,0,len-arrowsize,-arrowsize/2);
     ofPopMatrix();
 }
 
-ofVec2f Flowfield::lookup(const ofVec2f & lookup) const{
+ofPoint flowField::lookup(const ofPoint & lookup) const{
     int column = int(ofClamp(lookup.x/resolution,0,cols-1));
     int row = int(ofClamp(lookup.y/resolution,0,rows-1));
     return field[column][row];

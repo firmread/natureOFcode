@@ -5,11 +5,10 @@ void ofApp::setup(){
     ofBackground(255);
     ofEnableSmoothing();
     ofSetCircleResolution(100);
-    ofSetVerticalSync(true);
     
     v.setup(ofGetWidth()/2, ofGetHeight()/2);
     d = 60;
-    toggle = false;
+    bSimpleBound = false;
     
     circleRadius = ofGetHeight()/2-d;
 }
@@ -18,83 +17,47 @@ void ofApp::setup(){
 void ofApp::update(){
     circlePosition.set(ofGetWidth()/2, ofGetHeight()/2);
 
-    
-    if(toggle){ v.boundaries();}
-    else{
-     v.circleBoundaries(circleRadius, circlePosition);
+    if(bSimpleBound){
+        v.boundaries();
+    }else{
+        v.circleBoundaries(circleRadius, circlePosition);
     }
-    
     v.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
     v.draw();
-    
-    
-    if(toggle){
-        
+    ofNoFill();
+    if(bSimpleBound){
         ofSetColor(175);
-        ofNoFill();
-        ofRectMode(CENTER);
-        ofRect(d, d, ofGetWidth()-d*2, ofGetHeight()-d*2);
-    
-    }
-    
-    
-    else{
+        ofRectMode(OF_RECTMODE_CENTER);
+        ofDrawRectangle(d, d, ofGetWidth()-d*2, ofGetHeight()-d*2);
+    }else{
         ofSetColor(175);
-        ofNoFill();
-        ofCircle(circlePosition, circleRadius);
+        ofDrawCircle(circlePosition, circleRadius);
     }
+    ofFill();
     
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
+void ofApp::keyPressed(int key){ }
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
+void ofApp::keyReleased(int key){ }
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
+void ofApp::mouseMoved(int x, int y ){ }
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
+void ofApp::mouseDragged(int x, int y, int button){ }
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    ofBackground(255);
-    
-    toggle = !toggle;
-
+    bSimpleBound = !bSimpleBound;
 }
-
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
+void ofApp::mouseReleased(int x, int y, int button){ }
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
+void ofApp::windowResized(int w, int h){ }
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
+void ofApp::gotMessage(ofMessage msg){ }
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
+void ofApp::dragEvent(ofDragInfo dragInfo){ }
