@@ -50,10 +50,9 @@ etc.
 	* press `update multiple`
   
   
-  
-
-### contributing
-Pull requests for missing examples is very welcome!
+### note
+* later chapters are still very experimental and unfinished
+* Pull requests for missing/broken examples are very welcome!
 
   
 

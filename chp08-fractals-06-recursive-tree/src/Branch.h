@@ -1,6 +1,0 @@
-#ifndef BRANCH_H_INCLUDED
-#define BRANCH_H_INCLUDED
-
-
-
-#endif // BRANCH_H_INCLUDED

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
-#include <iostream>
+#include "PolygonPoints.h"
+#include "KochCurve.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp{
@@ -21,7 +21,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		string current;
-		int cnt;
+        vector<KochCurve> kc;
+        PolygonPoints pp;
+        vector<KochCurve> kc2;
+        PolygonPoints pp2;
 
 };
