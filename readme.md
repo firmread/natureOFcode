@@ -62,7 +62,8 @@ This repo is collected, curated, and maintain by [`Reed Tothong`](firmread.me).
   
 It is possible by both direct and indirect contributions from public Nature of Code repos throughout Github.   
 #####Contributors including (but not limited to) (in alphabetical order) :  
-* [`Brett Renfer`](https://github.com/robotconscience) 
+* [`Brett Renfer`](https://github.com/robotconscience)
+* [`Charlie Whitney`](https://github.com/cwhitney) 
 * [`Emmanuel Geoffray`](https://github.com/emmanuelgeoffray)  
 * [`Jason McDermott`](https://github.com/jasonmcdermott)
 * [`Maria Paula Saba dos Reis`](https://github.com/mariapaulasaba)  
