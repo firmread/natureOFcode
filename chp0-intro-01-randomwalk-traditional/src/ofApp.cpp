@@ -5,8 +5,6 @@ void ofApp::setup(){
     
     ofBackground(255);
     ofSetBackgroundAuto(false);
-    
-    w = walker();
 }
 
 //--------------------------------------------------------------
