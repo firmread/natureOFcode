@@ -20,17 +20,12 @@ void walker::update() {
     int rangeWidth = (ofGetWidth()/2) /scale;
     int rangeHeight = (ofGetHeight()/2) /scale;
     
-    x = constrain(x, -rangeWidth, rangeWidth);
-    y = constrain(y, -rangeHeight, rangeHeight);
+    x = ofClamp(x, -rangeWidth, rangeWidth);
+    y = ofClamp(y, -rangeHeight, rangeHeight);
 }
 
 
 void walker::draw() {
     ofSetColor(0,20);
     ofDrawRectangle(x, y, 1, 1);
-}
-
-
-int walker::constrain(int input, int min, int max) {
-    return (input < min) ? min : ((input > max) ? max : input);
 }
