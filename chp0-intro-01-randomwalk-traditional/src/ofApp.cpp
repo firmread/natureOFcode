@@ -2,26 +2,26 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
-    ofBackground(255);
-    ofSetBackgroundAuto(false);
-    
-    w = walker();
+  ofSetBackgroundColor(m_backgroundColor);
+  ofSetBackgroundAuto(false);
+  ofSetCircleResolution(100);
+
+  auto position = glm::vec2 { ofGetWidth() / 2, ofGetHeight() / 2 };
+
+  m_walker.setup(position, 2);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
-    ofSetFrameRate(mouseX);
-    w.update();
+  m_walker.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    ofScale(w.scale, w.scale);
-    w.draw();
+  ofFill();
+  ofSetColor(m_walkerColor);
+
+  m_walker.draw();
 }
 
 //--------------------------------------------------------------

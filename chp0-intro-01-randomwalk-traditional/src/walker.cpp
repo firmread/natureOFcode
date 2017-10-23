@@ -1,36 +1,35 @@
+#include "Walker.h"
 
-#include "walker.h"
 
-walker::walker() {
-    x = 0;
-    y = 0;
-    scale = 5;
+void Walker::setup(const glm::vec2& position, int radius) {
+  m_position = position;
+  m_radius = radius;
 }
 
 
-void walker::update() {
-    int choice = int(ofRandom(4));
-    cout << choice << endl;
-    
-    if (choice == 0) x++;
-    else if (choice == 1) x--;
-    else if (choice == 2) y++;
-    else if (choice == 3) y--;
-    
-    int rangeWidth = (ofGetWidth()/2) /scale;
-    int rangeHeight = (ofGetHeight()/2) /scale;
-    
-    x = constrain(x, -rangeWidth, rangeWidth);
-    y = constrain(y, -rangeHeight, rangeHeight);
+void Walker::update() {
+  step();
+  keepInBounds();
 }
 
 
-void walker::draw() {
-    ofSetColor(0,20);
-    ofDrawRectangle(x, y, 1, 1);
+void Walker::draw() {
+  ofDrawCircle(m_position, m_radius);
 }
 
 
-int walker::constrain(int input, int min, int max) {
-    return (input < min) ? min : ((input > max) ? max : input);
+void Walker::step() {
+  int choice = ofRandom(4);
+  cout << "New step choice: " << choice << "\n";
+
+  if (choice == 0) m_position.x += (m_radius * 2);
+  else if (choice == 1) m_position.x -= (m_radius * 2);
+  else if (choice == 2) m_position.y += (m_radius * 2);
+  else if (choice == 3) m_position.y -= (m_radius * 2);
+}
+
+
+void Walker::keepInBounds() {
+  m_position.x = ofClamp(m_position.x, 0.0, ofGetWidth());
+  m_position.y = ofClamp(m_position.y, 0.0, ofGetHeight());
 }
