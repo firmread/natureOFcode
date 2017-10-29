@@ -3,8 +3,11 @@
 *.sln
 *.vcx*
 *.workspace*
+addons.make
 config.make
 Makefile
+
+*.vscode
 *.xcodeproj
 *.plist
 *.xcconfig
@@ -27,6 +30,7 @@ project.xcworkspace
 
 .svn/
 obj/
-bin/
+bin/**
+!bin/data
 build/
 !data/
